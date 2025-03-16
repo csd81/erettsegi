@@ -1,0 +1,15 @@
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.AssemblyInfoInputs.cache
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.AssemblyInfo.cs
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.csproj.CoreCompileInputs.cache
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.sourcelink.json
+/workspaces/erettsegi/bin/Debug/net8.0/erettsegi
+/workspaces/erettsegi/bin/Debug/net8.0/erettsegi.deps.json
+/workspaces/erettsegi/bin/Debug/net8.0/erettsegi.runtimeconfig.json
+/workspaces/erettsegi/bin/Debug/net8.0/erettsegi.dll
+/workspaces/erettsegi/bin/Debug/net8.0/erettsegi.pdb
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.dll
+/workspaces/erettsegi/obj/Debug/net8.0/refint/erettsegi.dll
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.pdb
+/workspaces/erettsegi/obj/Debug/net8.0/erettsegi.genruntimeconfig.cache
+/workspaces/erettsegi/obj/Debug/net8.0/ref/erettsegi.dll

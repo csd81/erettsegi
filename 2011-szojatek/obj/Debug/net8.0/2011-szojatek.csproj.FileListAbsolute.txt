@@ -1,0 +1,15 @@
+/workspaces/erettsegi/2011-szojatek/bin/Debug/net8.0/2011-szojatek
+/workspaces/erettsegi/2011-szojatek/bin/Debug/net8.0/2011-szojatek.deps.json
+/workspaces/erettsegi/2011-szojatek/bin/Debug/net8.0/2011-szojatek.runtimeconfig.json
+/workspaces/erettsegi/2011-szojatek/bin/Debug/net8.0/2011-szojatek.dll
+/workspaces/erettsegi/2011-szojatek/bin/Debug/net8.0/2011-szojatek.pdb
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.AssemblyInfoInputs.cache
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.AssemblyInfo.cs
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.csproj.CoreCompileInputs.cache
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.sourcelink.json
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.dll
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/refint/2011-szojatek.dll
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.pdb
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/2011-szojatek.genruntimeconfig.cache
+/workspaces/erettsegi/2011-szojatek/obj/Debug/net8.0/ref/2011-szojatek.dll
