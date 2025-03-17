@@ -16,7 +16,7 @@ található. Az állományban az üzenetek számát követően k×2 sor szerepel
 Az üzenetek érkezési idő szerint növekvően rendezettek.
 
 Például:
-    ```
+```
     30
     9 11 123456789
     Szia, mikor jossz?
@@ -29,7 +29,7 @@ Például:
     9 21 434324223
     Nyertünk a palyazaton!
     ...
-    ```
+```
 
 Készítsen programot sms néven, amely az alábbi kérdésekre válaszol!
 Ügyeljen arra, hogy a program forráskódját a megadott helyre mentse!
