@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_felteteleselagazas_1_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            double v;
+            Console.Write( "Kerek egy valos szamot: ");
+            v = Convert.ToDouble(Console.ReadLine());
+            if (v < 0) v = -1 * v;
+            Console.WriteLine( "A szam abszoluterteke: {0}" , v)  ;
+            //2. feladat
+            Console.Write( "Kerek egy valos szamot: ");
+            v = Convert.ToDouble(Console.ReadLine());
+            if (v < 0)
+                Console.WriteLine( "Negativ szambol nem lehet gyokot vonni.")  ;
+            else
+                Console.WriteLine( "A szam negyzetgyoke: {0}", Math.Sqrt(v))  ;
+            //3. feladat
+            int hsz;
+            Console.Write( "Kerem a tornybol lathato hajok szamat: ");
+            hsz = Convert.ToInt16(Console.ReadLine());
+            if (hsz > 3) Console.WriteLine( "Nehez torony.");
+            //4. feladat
+            int sz, n;
+            Console.Write( "Kerem az elso egesz szamot: ");
+            sz = Convert.ToInt16(Console.ReadLine());
+            Console.Write( "Kerem a masodik egesz szamot: ");
+            n = Convert.ToInt16(Console.ReadLine());
+            if (sz % n == 0)
+                Console.WriteLine( "Erteke: {0}.",  sz / n);
+            else
+                Console.WriteLine( "Nem egesz.");
+            //5. feladat
+            int am, t, e;
+            Console.Write( "Kerek egy haromjegyu egesz szamot: ");
+            am = Convert.ToInt16(Console.ReadLine());
+            sz = am / 100;
+            t = am / 10 % 10;
+            e = am % 10;
+            if (am == sz * sz * sz + t * t * t + e * e * e)
+                Console.WriteLine( "Amstrong-szam.");
+            else
+                Console.WriteLine( "Nem Amstrong-szam");
+            Console.ReadLine();
+        }
+    }
+}

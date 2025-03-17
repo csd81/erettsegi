@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace VI_tort
+{
+    class Program
+    {
+        static int lnko(int a, int b)
+        {
+            if (a == b) return a;
+            else
+            {
+                if (a < b) return lnko(a, b - a);
+                else return lnko(a - b, b);
+            }
+        }
+        static int lkkt(int a, int b)
+        {
+            return a * b / lnko(a, b);
+        }
+
+        static void egyszerusit(int szaml, int nev)
+        {
+            Console.Write(" = ");
+            if (szaml % nev == 0) Console.Write(szaml / nev);
+            else Console.Write("{0}/{1}", szaml / lnko(szaml, nev), nev / lnko(szaml, nev));
+            Console.WriteLine();
+        }
+        static void szoroz(int szaml1, int nev1, int szaml2, int nev2)
+        {
+            Console.Write("{0}/{1} * {2}/{3} = {4}/{5}", szaml1, nev1, szaml2, nev2, szaml1 * szaml2, nev1 * nev2);
+            egyszerusit(szaml1 * szaml2, nev1 * nev2);
+        }
+        static void osszead(int szaml1, int nev1, int szaml2, int nev2)
+        {
+            int kn, bov1, bov2;
+            kn = lkkt(nev1, nev2);
+            bov1 = szaml1 * kn / nev1;
+            bov2 = szaml2 * kn / nev2;
+            Console.Write("{0}/{1} + {2}/{3} = {4}/{5} + {6}/{7} = {8}/{9}", szaml1, nev1, szaml2, nev2, bov1, kn, bov2, kn, bov1 + bov2, kn);
+            egyszerusit(bov1 + bov2, kn);
+        }
+        static void Main(string[] args)
+        {
+            int sz1,n1,sz2,n2;
+            Console.WriteLine( "1. feladat" );
+            Console.Write( "Kerem az 1. tort szamlalojat: ");
+            sz1 = Convert.ToInt16(Console.ReadLine());
+            Console.Write( "Kerem az 1. tort nevezojet: ");
+            n1 = Convert.ToInt16(Console.ReadLine());
+            if (sz1 % n1 == 0) Console.WriteLine( sz1 / n1 );
+            else Console.WriteLine( "Nem egesz." );
+            Console.WriteLine( "3. feladat" );
+            Console.Write( "{0}/{1}", sz1 , n1);
+            egyszerusit(sz1,n1);
+            Console.WriteLine( "4. feladat" );
+            Console.Write( "Kerem a 2. tort szamlalojat: ");
+            sz2 = Convert.ToInt16(Console.ReadLine());
+            Console.Write( "Kerem a 2. tort nevezojet: ");
+            n2 = Convert.ToInt16(Console.ReadLine());
+            szoroz(sz1,n1,sz2,n2);
+            osszead(sz1,n1,sz2,n2);
+            Console.WriteLine( "6. feladat" );
+            char muv;
+            string sor;
+            string[] reszek;
+            StreamReader be = new StreamReader("adat.txt");
+            StreamWriter ki = new StreamWriter("eredmeny.txt");
+            TextWriter eredeti = Console.Out;
+            Console.SetOut(ki);
+            sor = be.ReadLine();
+            while (sor != null){
+                reszek = sor.Split(' ');
+                sz1 = Convert.ToInt16(reszek[0]);
+                n1 = Convert.ToInt16(reszek[1]);
+                sz2 = Convert.ToInt16(reszek[2]);
+                n2 = Convert.ToInt16(reszek[3]);
+                muv = Convert.ToChar(reszek[4]);
+                if (muv =='*')
+                    szoroz(sz1,n1,sz2,n2);
+                else
+                    osszead(sz1,n1,sz2,n2);
+                sor = be.ReadLine();
+            }
+            be.Close();
+            ki.Flush();
+            ki.Close();
+            Console.SetOut(eredeti);
+            Console.ReadLine();
+        }
+    }
+}

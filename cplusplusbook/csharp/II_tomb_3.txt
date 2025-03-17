@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_tomb_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+             //a - b) feladat
+            string[,] orarend = new string[4,5]{
+                {"iras","olvasas","szamtan","rajz","enek"},
+                {"olvasas","szamtan","rajz","iras","enek"},
+                {"szamtan","olvasas","szamtan","iras","gyak"},
+                {"iras","olvasas","szamtan","gyak","szamtan"}
+            };
+            //c) feladat
+            Console.WriteLine("szerda 3. ora: {0}", orarend[2, 2]);
+            //d) feladat
+            int n,o;
+            Console.Write( "Nap sorszama: ");
+            n = Convert.ToInt16(Console.ReadLine());
+            Console.Write( "Ora sorszama: ");
+            o = Convert.ToInt16(Console.ReadLine());
+            string[] napok = new string[7]{"hetfo","kedd","szerda","csutortok",
+                                "pentek", "szombat", "vasarnap"};
+            string ora = orarend[o-1,n-1];
+            Console.Write("{0} {1}. ora: {2}.", napok[n-1], o, ora);
+            //e) feladat
+            string csere;
+            csere = orarend[3,0];
+            orarend[3,0] = orarend[2,2];
+            orarend[2,2] = csere;
+            Console.ReadLine();
+        }
+    }
+}

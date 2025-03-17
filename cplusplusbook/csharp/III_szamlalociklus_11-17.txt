@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_szamlalociklusok_11_17
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //11. feladat
+            int i;
+            string[] napok = new string[7] {"hetfo","kedd","szerda","csutortok",
+                                "pentek","szombat","vasarnap"};
+            for(i=0;i<=6;i++)
+                Console.Write( "{0} ", napok[i] );
+            //12. feladat
+            Console.WriteLine();
+            Random rnd = new Random();
+            int vel;
+            for(i=1;i<=15;i++){
+                vel = rnd.Next(0,7);
+                Console.Write( "{0} ", napok[vel]);
+            }
+            Console.WriteLine();
+            //13. feladat
+            char[] fig = new char[3]{'X','O','.'};
+            for(i=0;i<=2;i++)
+                Console.Write( fig[i]);
+            //14. feladat
+            Console.WriteLine();
+            bool[] dobas = new bool[100];
+            for (i = 0; i <= 99; i++)
+            {
+                if(rnd.Next(0,2)==1) dobas[i] = true;
+                else dobas[i]=false;
+            }
+            for(i=0;i<=99;i++){
+                if (dobas[i]==true) Console.Write( "fej ");
+                else Console.Write( "iras ");
+            }
+            //15. feladat
+            Console.WriteLine();
+            int[] kocka = new int[50];
+            for(i=0;i<=49;i++)
+                kocka[i]=rnd.Next(1,7);
+            for(i=0;i<=49;i++)
+                Console.Write( "{0} ",kocka[i]);
+            Console.WriteLine();
+            //16. feladat
+            string szo, seged;
+            Console.Write("Kerek egy szot: ");
+            szo = Console.ReadLine();
+            seged="";
+            for(i=szo.Length-1;i>=0;i--)
+                seged+=szo[i];
+            szo=seged;
+            Console.WriteLine( szo);
+            //17. feladat
+            string bazissor;
+            char[] bazisok = new char[4]{'A','C','G','T'};
+            bazissor="";
+            for(i=0;i<=19;i++)
+                bazissor+=bazisok[rnd.Next(0,4)];
+            Console.WriteLine(bazissor);
+            Console.ReadLine();
+        }
+    }
+}

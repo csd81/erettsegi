@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_modularis_5
+{
+    class Program
+    {
+        static int lnko(int a, int b)
+        {
+            if (a == b) return a;
+            else
+            {
+                if (a < b) return lnko(a, b - a);
+                else return lnko(a - b, b);
+            }
+        }
+        static int lkkt(int a, int b)
+        {
+            return a * b / lnko(a, b);
+        }
+
+        static void egyszerusit(int szaml, int nev)
+        {
+            Console.Write(" = ");
+            if (szaml % nev == 0) Console.Write(szaml / nev);
+            else Console.Write("{0}/{1}", szaml / lnko(szaml, nev), nev / lnko(szaml, nev));
+            Console.WriteLine();
+        }
+        static void szoroz(int szaml1, int nev1, int szaml2, int nev2)
+        {
+            Console.Write("{0}/{1} * {2}/{3} = {4}/{5}", szaml1, nev1, szaml2, nev2, szaml1 * szaml2, nev1 * nev2);
+            egyszerusit(szaml1 * szaml2, nev1 * nev2);
+        }
+        static void osszead(int szaml1, int nev1, int szaml2, int nev2)
+        {
+            int kn, bov1, bov2;
+            kn = lkkt(nev1, nev2);
+            bov1 = szaml1 * kn / nev1;
+            bov2 = szaml2 * kn / nev2;
+            Console.Write("{0}/{1} + {2}/{3} = {4}/{5} + {6}/{7} = {8}/{9}", szaml1, nev1, szaml2, nev2, bov1, kn, bov2, kn, bov1 + bov2, kn);
+            egyszerusit(bov1 + bov2, kn);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine( lnko(6, 6) );
+            Console.WriteLine( lnko(120, 75) );
+            Console.WriteLine( lnko(75, 120) );
+            Console.WriteLine( lkkt(75, 120) );
+            egyszerusit(12, 15);
+            egyszerusit(6, 2);
+            szoroz(2, 3, 3, 4);
+            osszead(1, 2, 3, 4);
+            Console.ReadLine();
+        }
+    }
+}

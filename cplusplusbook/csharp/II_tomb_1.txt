@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_tomb_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //a - b) feladatok
+            string[] napok = new string[7] {"hetfo","kedd","szerda","csutortok", "pentek", "szombat", "vasarnap"};
+            //c) feladat
+            Console.WriteLine( napok[0] ) ;
+            //d) feladat
+            Console.WriteLine( napok[2] ) ;
+            //e) feladat
+            Console.WriteLine( napok[5]);
+            Console.Write(   "A het hanyadik napjat irjuk ki? (1-7) ");
+            int napszam;
+            napszam= Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine( napok[napszam-1]);
+            Console.ReadLine();
+        }
+    }
+}

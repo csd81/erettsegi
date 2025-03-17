@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_ertekszerintielagazas_3c
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+            int szam = rnd.Next(1, 11);
+            switch (szam)
+            {
+                case 1: case 7:
+                    Console.WriteLine("   ");
+                    Console.WriteLine(" O ");
+                    Console.WriteLine("   ");
+                    break;
+                case 2:
+                    Console.WriteLine("O  ");
+                    Console.WriteLine("   ");
+                    Console.WriteLine("  O");
+                    break;
+                case 3:
+                    Console.WriteLine("O  ");
+                    Console.WriteLine(" O ");
+                    Console.WriteLine("  O");
+                    break;
+                case 4:
+                    Console.WriteLine("O O");
+                    Console.WriteLine("  ");
+                    Console.WriteLine("O O");
+                    break;
+                case 5:
+                    Console.WriteLine("O O");
+                    Console.WriteLine(" O ");
+                    Console.WriteLine("O O");
+                    break;
+                default:
+                    Console.WriteLine("O O");
+                    Console.WriteLine("O O");
+                    Console.WriteLine("O O");
+                    break;
+            }
+            Console.ReadLine();
+        }
+    }
+}

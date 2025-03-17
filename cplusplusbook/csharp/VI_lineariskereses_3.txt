@@ -1,0 +1,72 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+struct vetel
+{
+    public int nap;
+    public int amator;
+    public string vett;
+};
+
+namespace VI_lineariskereses_3
+{
+    class Program
+    {
+        static vetel[] uzenet = new vetel[1000];
+        static bool szame(string szo) {
+            bool valasz=true;
+            for(int i=0;i<szo.Length;i++)
+                if (szo[i]<'0' || szo[i]>'9') valasz=false;
+            return valasz;
+        }
+        static void Main(string[] args)
+        {
+            StreamReader be = new StreamReader("veetel.txt");
+            string sor;
+            string[] reszek;
+            string[] alr;
+            int utolso=0;
+            sor = be.ReadLine();
+            while (sor != null){
+                reszek = sor.Split(' ');
+                uzenet[utolso].nap = Convert.ToInt16(reszek[0]);
+                uzenet[utolso].amator = Convert.ToInt16(reszek[1]);
+                sor = be.ReadLine();
+                uzenet[utolso].vett = sor;
+                utolso++;
+                sor = be.ReadLine();
+            }
+            utolso--;
+            be.Close();
+            int nsz, asz, i;
+            Console.Write( "Adja meg a nap sorszamat: ");
+            nsz = Convert.ToInt16(Console.ReadLine());
+            Console.Write(  "Adja meg a radioamator sorszamat: ");
+            asz = Convert.ToInt16(Console.ReadLine());
+            i=0;
+            while (i<=utolso && !(uzenet[i].nap==nsz && uzenet[i].amator == asz ))
+                i++;
+            if (i<=utolso) {
+                int felnott, kolyok;
+                reszek = uzenet[i].vett.Split(' ');
+                alr=reszek[0].Split('/');
+                if (szame(alr[0]) && szame(alr[1])){
+                    felnott=Convert.ToInt16(alr[0]);
+                    kolyok=Convert.ToInt16(alr[1]);
+                    
+                    Console.Write( "A megfigyelt egyedek szama: {0}" , kolyok+felnott );
+                }
+                else
+                    Console.Write( "Nincs informacio.");
+            }
+            else
+                Console.Write( "Nincs ilyen feljegyzes.");
+
+            Console.ReadLine();
+        }
+    }
+}

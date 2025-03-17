@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_szamlalociklus_1_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat;
+            int i;
+            for (i = 1; i <= 10; i++)
+                Console.WriteLine( "Hello vilag!");
+            Console.WriteLine();
+            //2. feladat;
+            for (i = 1; i <= 10; i++)
+                Console.WriteLine( "{0}. Hello vilag!",i); 
+            Console.WriteLine();
+            //3. feladat;
+            for (i = 1; i <= 10; i++)
+                Console.Write( "{0} ", 2 * i);
+            Console.WriteLine();
+            //4. feladat;
+            for (i = 100; i >= 0; i -= 10)
+                Console.Write( "{0} ",i);
+            Console.WriteLine();
+            Console.WriteLine();
+            //5. feladat;
+            for (i = 1; i <= 50; i++)
+                Console.Write( i % 10);
+            Console.WriteLine();
+            Console.WriteLine();
+            //6. feladat;
+            for (i = 1; i <= 50; i++)
+                Console.Write( i / 10);
+            Console.WriteLine();
+            for (i = 1; i <= 50; i++)
+                Console.Write( i % 10);
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+    }
+}

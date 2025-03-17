@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_fuggvenyek_3
+{
+    class Program
+    {
+        static int fizet(int tav)
+        {
+            int fizetes;
+            if (tav < 3) fizetes = 500;
+            else
+            {
+                if (tav < 6) fizetes = 700;
+                else
+                {
+                    if (tav < 11) fizetes = 900;
+                    else
+                    {
+                        if (tav < 21) fizetes = 1400;
+                        else fizetes = 2000;
+                    }
+                }
+            }
+            return fizetes;
+        }
+        static void Main(string[] args)
+        {
+            int km;
+            Console.Write("Kerek egy tavolsagot (1-30): ");
+            km = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Dijazas: {0} Ft.", fizet(km));
+            Console.ReadLine();
+        }
+    }
+}

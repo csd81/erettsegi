@@ -1,0 +1,205 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace oop
+{
+    
+    class Tortek {
+        private int szamlalo;
+        private int nevezo;
+        public Tortek()
+        {
+            szamlalo = 0;
+            nevezo = 1;
+        }
+        public void eldontiegesze() 
+        {
+            if (szamlalo % nevezo == 0)
+                Console.Write(szamlalo / nevezo);
+            else
+                Console.WriteLine("Nem egész");
+        }
+        public static int lnko(int egyik, int masik)
+        {
+            if (egyik == masik) return egyik;
+            else
+            {
+                if (egyik < masik) 
+                    return lnko(egyik, masik - egyik);
+                else return lnko(egyik - masik, masik);
+            }
+        }
+        public void egyszerusit(){
+            Console.Write(" = ");
+            if (szamlalo%nevezo==0)
+                Console.WriteLine(szamlalo/nevezo);
+            else
+                Console.WriteLine("{0}/{1}", 
+                    szamlalo/lnko(szamlalo,nevezo),
+                    nevezo/lnko(szamlalo,nevezo));
+        }
+        public void megjelenit()
+        {
+            Console.Write("{0}/{1}",
+                szamlalo, nevezo);
+        }
+        public void tortetbeker()
+        {
+            Console.Write("Számláló: ");
+            szamlalo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Nevező: ");
+            nevezo = Convert.ToInt32(Console.ReadLine());
+        }
+        public int szamlalotad()
+        {
+            return szamlalo;
+        }
+        public int nevezotad()
+        {
+            return nevezo;
+        }
+        public void tortetfeltolt(int sz, int n)
+        {
+            szamlalo = sz;
+            nevezo = n;
+        }
+    };
+    class Muveletek {
+        protected Tortek tort1 = new Tortek();
+        protected Tortek tort2 = new Tortek();
+        protected Tortek eredmeny = new Tortek();
+        protected char muvelet;
+        public Muveletek(){
+            muvelet = '*';
+        }
+        public virtual void eredmenytkiir()
+        {
+            tort1.megjelenit();
+            Console.Write(" {0} ", muvelet);
+            tort2.megjelenit();
+            Console.Write(" = ");
+            eredmeny.megjelenit();
+            eredmeny.egyszerusit();
+        }
+        public void muveletetbeker()
+        {
+            Console.WriteLine("1. tort");
+            tort1.tortetbeker();
+            Console.WriteLine("2. tort");
+            tort2.tortetbeker();
+        }
+        public void szoroz()
+        {
+            eredmeny.tortetfeltolt(tort1.szamlalotad() *tort2.szamlalotad(),
+                tort1.nevezotad() * tort2.nevezotad());
+        }
+        public void adatotfeltolt(int sz1,
+        int n1, int sz2, int n2, char m)
+        {
+            tort1.tortetfeltolt(sz1, n1);
+            tort2.tortetfeltolt(sz2, n2);
+            muvelet = m;
+        }
+        public void fajlbair(){
+            TextWriter eredeti = Console.Out;
+            StreamWriter ki =  new StreamWriter("eredmeny.txt",append: true);
+            Console.SetOut(ki);
+            eredmenytkiir();
+            ki.Flush();
+            ki.Close();
+            Console.SetOut(eredeti); 
+        }
+    }
+    class Osszeadasok : Muveletek
+    {
+        private Tortek resz1 = new Tortek();
+        private Tortek resz2 = new Tortek();
+        public Osszeadasok() { 
+            muvelet = '+';
+        }
+        public override void eredmenytkiir()
+        {
+            tort1.megjelenit();
+            Console.Write(" {0} ", muvelet);
+            tort2.megjelenit();
+            Console.Write(" = ");
+            resz1.megjelenit();
+            Console.Write(" {0} ", muvelet);
+            resz2.megjelenit();
+            Console.Write(" = ");
+            eredmeny.megjelenit();
+            eredmeny.egyszerusit();
+        }
+        public int lkkt(int a, int b)
+        {
+            return a * b / Tortek.lnko(a, b);
+        }
+        public void osszead()
+        {
+            int knev = lkkt(tort1.nevezotad(), tort2.nevezotad());
+            int sz1 = tort1.szamlalotad() * knev / tort1.nevezotad();
+            int sz2 = tort2.szamlalotad() * knev / tort2.nevezotad();
+            resz1.tortetfeltolt(sz1, knev);
+            resz2.tortetfeltolt(sz2, knev);
+            eredmeny.tortetfeltolt(sz1 + sz2, knev);
+        }
+    }
+    class Control 
+    {
+        private Tortek tort = new Tortek();
+        private Muveletek szorzas = new Muveletek();
+        private Osszeadasok osszeadas = new Osszeadasok();
+        public Control() 
+        {
+            tort.tortetbeker();
+            tort.eldontiegesze();
+            tort.megjelenit();
+            tort.egyszerusit();
+            szorzas.muveletetbeker();
+            szorzas.szoroz();
+            szorzas.eredmenytkiir();
+            osszeadas.muveletetbeker();
+            osszeadas.osszead();
+            osszeadas.eredmenytkiir();
+            int sz1,n1,sz2,n2;
+            char m;
+            string sor;
+            string[] reszek;
+            StreamReader be = new StreamReader("adat.txt");
+            sor = be.ReadLine();
+            while (sor!=null){
+                reszek = sor.Split();
+                sz1 = Convert.ToInt16(reszek[0]);
+                n1 = Convert.ToInt16(reszek[1]);
+                sz2 = Convert.ToInt16(reszek[2]);
+                n2 = Convert.ToInt16(reszek[3]);
+                m = Convert.ToChar(reszek[4]);
+                if (m=='*'){
+                    szorzas.adatotfeltolt(sz1,n1,sz2,n2,m);
+                    szorzas.szoroz();
+                    szorzas.fajlbair();
+                }
+                else {
+                    osszeadas.adatotfeltolt(sz1,n1,sz2,n2,m);
+                    osszeadas.osszead();
+                    osszeadas.fajlbair();
+                }
+                sor = be.ReadLine();
+            }
+            be.Close();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Control control = new Control();
+            Console.ReadLine();
+        }
+    }
+}
+

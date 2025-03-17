@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_adatoktombbe_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int db=0;
+            char[] bazis = new char[1000];
+            StreamReader be = new StreamReader("bsa.txt");
+            string sor;
+            sor = be.ReadLine();
+            while (sor != null){
+                bazis[db] = Convert.ToChar(sor);
+                db++;
+                sor = be.ReadLine();
+            }
+            db--;
+            be.Close();
+            for(int i=db;i>=0;i--)
+                Console.Write(bazis[i]);
+            Console.ReadLine();
+        }
+    }
+}

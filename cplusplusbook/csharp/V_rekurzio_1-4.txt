@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_rekurzio_1_4
+{
+    class Program
+    {
+        static int lnko(int a, int b)
+        {
+            if (a == b) return a;
+            else {
+                if (a < b) return lnko(a, b - a);
+                else return lnko(a - b, b);            
+            }
+        }
+        static int lkkt(int a, int b)
+        {
+            return a * b / lnko(a, b);
+        }
+        static int faktor(int n)
+        {
+            if (n > 1) return n * faktor(n - 1);
+            else return 1;
+        }
+        static int fib(int n)
+        {
+            if (n > 2) return fib(n - 1) + fib(n - 2);
+            else return 1;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine( lnko(75, 120) );
+            Console.WriteLine( lkkt(75, 120) );
+            Console.WriteLine( faktor(4) );
+            Console.WriteLine( fib(7) );
+            Console.ReadLine();
+        }
+    }
+}

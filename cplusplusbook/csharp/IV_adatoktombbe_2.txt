@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_adatoktombbe_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i,j,sz;
+            string sor;
+            string[] reszek;
+            int[] r = new int[2500];
+            int[] g = new int[2500];
+            int[] b = new int[2500];
+            StreamReader be = new StreamReader("kep.txt"); 
+            for(i=0;i<=2499;i++){
+                sor = be.ReadLine();
+                reszek = sor.Split(' ');
+                r[i]=Convert.ToInt16(reszek[0]);
+                g[i]=Convert.ToInt16(reszek[1]);
+                b[i]=Convert.ToInt16(reszek[2]);
+            }
+            be.Close();
+            Console.Write("   ");
+            for(i=0;i<=49;i++)
+                Console.Write( i / 10);
+            Console.WriteLine();
+            Console.Write("   ");
+            for(i=0;i<=49;i++)
+                Console.Write( i % 10);
+            Console.WriteLine("\n");
+            for(i=0;i<=49;i++){
+                Console.Write("{0}{1} ", i / 10,  i % 10);
+                for(j=0;j<=49;j++){
+                    sz = i*50 + j;
+                    if(r[sz]==255 && g[sz]==0 && b[sz]==0)
+                        Console.Write( 'P');
+                    else {
+                        if(r[sz]==0 && g[sz]==255 && b[sz]==0)
+                            Console.Write( 'Z');
+                        else {
+                            if(r[sz]==0 && g[sz]==0 && b[sz]==255)
+                                Console.Write( 'K');
+                            else {
+                                if(r[sz]==255 && g[sz]==255 && b[sz]==0)
+                                    Console.Write( 'S');
+                                else Console.Write( '.');
+                            }
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
+    }
+}

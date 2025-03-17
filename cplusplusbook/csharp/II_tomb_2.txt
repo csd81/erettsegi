@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_tomb_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //a - b) feladat
+            int[] kar = new int[11] {6,5,8,7,10,3,1,2,0,4,9};
+            //c) feladat
+            Console.WriteLine( "A 7. tanulo a {0}. tanulonak adott ajandekot.", kar[7]) ;
+            //d) feladat
+            Console.WriteLine( "d) {0}", kar[kar[7]])  ;
+            //e) feladat
+            int csere;
+            csere = kar[3];
+            kar[3] = kar[4];
+            kar[4] = csere;
+            //f) feladat
+            string[] nev= new string[11]{"Andras","Bela","Cecilia","Dora","Elemer",
+                                "Fanni","Gloria","Hedvig","Ilona",
+                                "Jozsef", "Katalin"};
+            //g) feladat
+            int ssz;
+            Console.Write( "Kerem egy tanulo sorszamat (0-10) :");
+            ssz = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("{0} {1}-t ajandekozta meg.",nev[ssz], nev[kar[ssz]]);
+            //h) feladat
+            Console.WriteLine( "{0} -> {1} -> {2}",nev[ssz], nev[kar[ssz]], nev[kar[kar[ssz]]]);
+            Console.ReadLine();
+        }
+    }
+}

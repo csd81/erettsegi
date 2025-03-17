@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_valos_1_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double x,y,z;
+            Console.Write( "Kerem az elso szamot: ");
+            x = Convert.ToDouble(Console.ReadLine());
+            Console.Write( "Kerem a masodik szamot: ");
+            y = Convert.ToDouble(Console.ReadLine());
+            Console.Write( "Kerem a harmadik szamot: ");
+            z = Convert.ToDouble(Console.ReadLine());
+            double atlag = (x+y+z)/3;
+            Console.WriteLine( "Az atlag: {0:N2}", atlag);
+            //2. feladat
+            double a,b,c;
+            Console.Write( "Kerem a haromszog egyik befogojat: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.Write( "Kerem a haromszog masik befogojat: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            c = Math.Sqrt(a*a + b*b);
+            Console.WriteLine( "Az atfogo: {0:N1}", c)    ;
+            //3. feladat
+            double h,t;
+            Console.Write( "Milyen magasrol esik a ko (meter): ");
+            h = Convert.ToDouble(Console.ReadLine());
+            t = Math.Sqrt(2*h/9.81);
+            Console.WriteLine( "Az esese {0:N1} masodpercig tart.",t);
+            Console.ReadLine();
+        }
+    }
+}

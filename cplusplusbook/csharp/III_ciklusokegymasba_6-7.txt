@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_ciklusokegymasba_6_7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //6. feladat
+            char[,] amoba = new char[3,3]{
+                {'X','X','O' },
+                {'.','O','O' },
+                {'.','O','X' },
+            };
+            int i,j;
+            for(i=0;i<=2;i++){
+                for(j=0;j<=2;j++)
+                    Console.Write( amoba[i,j]);
+                Console.WriteLine( );
+            }
+            //7. feladat
+            Console.WriteLine();
+            Random rnd = new Random();
+            int[,] amobanagy = new int[20,20];
+            char[] fig = new char[3]{'O','X','.'};
+            for(i=0;i<=19;i++)
+                for(j=0;j<=19;j++)
+                    amobanagy[i,j]=rnd.Next(0,3);
+            for(i=0;i<=19;i++){
+                for(j=0;j<=19;j++)
+                    Console.Write(fig[amobanagy[i,j]]);
+                Console.WriteLine( );
+            }
+        Console.ReadLine();
+        }
+    }
+}

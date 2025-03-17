@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_adatoktombbe_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, j, sz;
+            string sor;
+            string[] reszek;
+            int[,] r = new int[50,50];
+            int[,] g = new int[50, 50];
+            int[,] b = new int[50, 50];
+            StreamReader be = new StreamReader("kep.txt");
+            for (i = 0; i <= 49; i++)
+                for (j = 0; j <= 49; j++)
+                {
+                    sor = be.ReadLine();
+                    reszek = sor.Split(' ');
+                    r[i, j] = Convert.ToInt16(reszek[0]);
+                    g[i, j] = Convert.ToInt16(reszek[1]);
+                    b[i, j] = Convert.ToInt16(reszek[2]);
+                }
+            be.Close();
+            Console.Write("   ");
+            for (i = 0; i <= 49; i++)
+                Console.Write(i / 10);
+            Console.WriteLine();
+            Console.Write("   ");
+            for (i = 0; i <= 49; i++)
+                Console.Write(i % 10);
+            Console.WriteLine("\n");
+            for (i = 0; i <= 49; i++)
+            {
+                Console.Write("{0}{1} ", i / 10, i % 10);
+                for (j = 0; j <= 49; j++)
+                {
+                    if (r[i,j] == 255 && g[i, j] == 0 && b[i,j] == 0)
+                        Console.Write('P');
+                    else
+                    {
+                        if (r[i, j] == 0 && g[i, j] == 255 && b[i, j] == 0)
+                            Console.Write('Z');
+                        else
+                        {
+                            if (r[i, j] == 0 && g[i, j] == 0 && b[i, j] == 255)
+                                Console.Write('K');
+                            else
+                            {
+                                if (r[i, j] == 255 && g[i, j] == 255 && b[i, j] == 0)
+                                    Console.Write('S');
+                                else Console.Write('.');
+                            }
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+        }
+    }
+}

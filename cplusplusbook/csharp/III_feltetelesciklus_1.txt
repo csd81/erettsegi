@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_feltetelesciklus_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b, c, d;
+            Console.Write( "Irjuk be az elso egesz szamot: ");
+            a = Convert.ToInt16(Console.ReadLine());
+            Console.Write("Irjuk be a masodik egesz szamot: ");
+            b = Convert.ToInt16(Console.ReadLine());           
+            c = a;
+            d = b;
+            while (c != d)
+            {
+                if (c > d) d += b;
+                else c += a;
+            }
+            Console.Write("A legkisebb kozos tobbszoros: {0}", c);
+            Console.ReadLine();
+        }
+    }
+}

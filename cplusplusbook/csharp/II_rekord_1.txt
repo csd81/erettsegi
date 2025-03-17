@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//a) feladat
+struct telek {
+    public int hazszam;
+    public int szeles;
+    public int hossz;
+};
+
+namespace II_rekord_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //b) feladat
+            telek buff;
+            //c) feladat
+            telek[] telkek = new telek[50];
+            //d) feladat
+            buff.hazszam = 21;
+            buff.szeles = 15;
+            buff.hossz = 50;
+            //e) feladat
+            telkek[10] = buff;
+            //f) feladat
+            Console.WriteLine("A {0}. szamu telek terulete {1} negyzetmeter", buff.hazszam, buff.szeles * buff.hossz);
+            //g) feladat
+            buff.szeles += 10;
+            buff.hossz -= 10;
+            Console.ReadLine();
+        }
+    }
+}

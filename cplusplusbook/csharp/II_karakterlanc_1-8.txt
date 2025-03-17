@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_karakterlanc_1_8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            string szo;
+            Console.Write(  "Kerek egy szot: ");
+            szo = Console.ReadLine();
+            int h = szo.Length;
+            Console.WriteLine( "A szo hossza: {0} karakter.", h);
+            //2. feladat
+            Console.WriteLine(  "A szo kezdobetuje: {0}", szo[0]);
+            //3. feladat
+            Console.WriteLine(  "A szo utolso betuje : {0}", szo[h - 1] );
+            //4. feladat
+            Console.Write(  "Kerek egy otbetus szot: ");
+            szo = Console.ReadLine();
+            Console.WriteLine(  "A szo kozepso 3 betuje: {0}", szo.Substring(1, 3)) ;
+            //5. feladat
+            Console.Write(  "Kerek egy budapesti iranyitoszamot: ");
+            szo = Console.ReadLine();
+            Console.WriteLine(  "A kerulet: {0}", szo.Substring(1, 2));
+            //6. feladat
+            string str = "leszel";
+            str=str.Remove(0,1);
+            str=str.Insert(0,"L");
+            Console.WriteLine( str ) ;
+            str=str.Remove(str.Length-1, 1);
+            str=str.Insert(str.Length, "k");
+            Console.WriteLine(  str ) ;
+            str=str.Remove(0, 1);
+            str=str.Remove(str.Length-1, 1);
+            Console.WriteLine(  str  );
+            str=str.Insert(str.Length, "m");
+            Console.WriteLine(  str  );
+            //7. feladat
+            string vnev, knev;
+            Console.WriteLine(  "Kerek egy elonevet: ");
+            vnev = Console.ReadLine();
+            Console.WriteLine(  "Kerek egy utonevet: ");
+            knev = Console.ReadLine();
+            Console.WriteLine(  vnev[0] + knev)  ;
+            //8. feladat
+            Console.WriteLine(  vnev.Substring(0, 3) + knev.Substring(0, 3) + "01");
+            Console.ReadLine();
+        }
+    }
+}

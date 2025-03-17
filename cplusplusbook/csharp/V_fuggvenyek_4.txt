@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_fuggvenyek_4
+{
+    class Program
+    {
+        static bool haromszoge(float a, float b, float c)
+        {
+            return (a + b > c && a + c > b && b + c > a);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(haromszoge(3, 4, 10));
+            Console.WriteLine(haromszoge(3, 4, 5));
+            Console.ReadLine();
+        }
+    }
+}

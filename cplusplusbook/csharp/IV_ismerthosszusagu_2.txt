@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_ismerthosszusagu_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string sor;
+            string[] reszek;
+            int i,n;
+            StreamReader be = new StreamReader("igeny.txt");
+            sor = be.ReadLine();
+            sor = be.ReadLine();
+            sor = be.ReadLine();
+            n = Convert.ToInt16(sor);
+            for(i=1;i<=n;i++){
+                sor = be.ReadLine();
+                reszek = sor.Split(' ');
+                Console.WriteLine("{0}. csapat - indul: {1}. szint, erkezik: {2}. szint, {3} ora {4} perc {5} mp.", reszek[0],reszek[1],reszek[2],reszek[3],reszek[4],reszek[5]);
+            }
+            be.Close();
+            Console.ReadLine();
+        }
+    }
+}

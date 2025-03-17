@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_ismeretlenhossz_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int nap;
+            string sor;
+            string[] reszek;
+            string[] napok = new string[7]{"hetfo","kedd","szerda","csutortok",
+                              "pentek","szombat","vasarnap"};
+            StreamReader be = new StreamReader("tavok.txt");
+            sor = be.ReadLine();
+            while (sor != null){
+                reszek = sor.Split(' ');
+                nap = Convert.ToInt16(reszek[0]);
+                Console.WriteLine("{0} {1}. fuvar: {2} km", napok[nap - 1], reszek[1], reszek[2]);
+                sor = be.ReadLine();
+            }
+            be.Close();
+            Console.ReadLine();
+        }
+    }
+}

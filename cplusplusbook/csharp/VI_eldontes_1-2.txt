@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VI_eldontes_1_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            Random rnd = new Random();
+            int[] tomb = new int[10];
+            int i;
+            for(i=0;i<=9;i++){
+                tomb[i] = rnd.Next(1,7);
+                Console.Write( "{0} ", tomb[i]);
+            }
+            Console.WriteLine();
+            i=0;
+            while (i<=9 && tomb[i]!=6)
+                i++;
+            if (i>9) Console.Write( "Nincs koztuk 6-os.");
+            else Console.Write( "Van koztuk 6-os.");
+            Console.WriteLine();
+            //2. feladat
+            string szo;
+            Console.Write("Kerek egy szot: ");
+            szo = Console.ReadLine();
+            string mgh="aeiou";
+            i=0;
+            while (i<=szo.Length-1 && !mgh.Contains(szo[i]))
+                i++;
+            if (i>szo.Length-1) Console.Write( "Nincs benne maganhangzo.");
+            else Console.Write( "Van benne maganhangzo.");
+            Console.ReadLine();
+        }
+    }
+}

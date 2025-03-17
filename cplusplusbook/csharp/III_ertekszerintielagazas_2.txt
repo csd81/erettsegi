@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_ertekszerintielagazas_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string szam;
+            int t, e;
+            Console.Write( "Kerek egy ketjegyu hexadecimalis szamot (00-FF): ");
+            szam = Console.ReadLine();
+            switch (szam[0])
+            {
+                case 'A': t = 10; break;
+                case 'B': t = 11; break;
+                case 'C': t = 12; break;
+                case 'D': t = 13; break;
+                case 'E': t = 14; break;
+                case 'F': t = 15; break;
+                default:
+                    t = (int)szam[0] - 48; break;
+            }
+            switch (szam[1])
+            {
+                case 'A': e = 10; break;
+                case 'B': e = 11; break;
+                case 'C': e = 12; break;
+                case 'D': e = 13; break;
+                case 'E': e = 14; break;
+                case 'F': e = 15; break;
+                default:
+                    e = (int)szam[1] - 48; break;
+            }
+            Console.WriteLine( t * 16 + e);
+            Console.ReadLine();
+        }
+    }
+}

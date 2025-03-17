@@ -1,0 +1,117 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+struct fuvarok
+{
+    public int nap;
+    public int fuvar;
+    public int hossz;
+};
+
+namespace VI_futar
+{
+    class Program
+    {
+        static int fizet(int tav)
+        {
+            int fizetes;
+            if (tav < 3) fizetes = 500;
+            else
+            {
+                if (tav < 6) fizetes = 700;
+                else
+                {
+                    if (tav < 11) fizetes = 900;
+                    else
+                    {
+                        if (tav < 21) fizetes = 1400;
+                        else fizetes = 2000;
+                    }
+                }
+            }
+            return fizetes;
+        }
+
+        static void Main(string[] args)
+        {
+            fuvarok[] rekord = new fuvarok[100];
+            fuvarok csere;
+            int db=0;
+            string sor;
+            string[] reszek;
+            StreamReader be = new StreamReader("tavok.txt");
+            sor = be.ReadLine();
+            while (sor != null){
+                reszek = sor.Split(' ');
+                rekord[db].nap = Convert.ToInt16(reszek[0]);
+                rekord[db].fuvar = Convert.ToInt16(reszek[1]);
+                rekord[db].hossz = Convert.ToInt16(reszek[2]);
+                db++;
+                sor = be.ReadLine();
+            }
+            be.Close();
+            db--;
+            int i,j;
+            for(i=0;i<=db-1;i++)
+                for(j=db;j>i;j--)
+                    if (rekord[j-1].nap*100+rekord[j-1].fuvar>rekord[j].nap*100+rekord[j].fuvar){
+                        csere = rekord[j];
+                        rekord[j]=rekord[j-1];
+                        rekord[j-1]=csere;
+                    }
+            Console.WriteLine( "2. feladat " );
+            Console.WriteLine( "A het legelso utjanak hossza km-ben: {0}",  rekord[0].hossz );
+            Console.WriteLine( "3. feladat " );
+            Console.WriteLine( "A het utolso utjanak hossza km-ben: {0}",  rekord[db].hossz );
+            Console.WriteLine( "4. feladat" );
+            int[] fsz = new int[8];
+            int[] km = new int[8];
+            for(i=1;i<=7;i++){
+                fsz[i]=0;
+                km[i]=0;
+            }
+            for(i=0;i<=db-1;i++) {
+                km[rekord[i].nap]+=rekord[i].hossz;
+                fsz[rekord[i].nap]++;
+            }
+            Console.Write( "Nem dolgozott ezeken a napokon: ");
+            for(i=1;i<=7;i++)
+                if (fsz[i]==0)
+                    Console.Write("{0}. ",i);
+            int maxhely=1;
+            int maxnap=fsz[1];
+            for(i=2;i<=7;i++)
+                if (maxnap<fsz[i]){
+                    maxnap=fsz[i];
+                    maxhely=i;
+                }
+            Console.WriteLine("\n5. feladat" );
+            Console.WriteLine( "A legtobb fuvar ezen a napon volt: {0}",  maxhely );
+            Console.WriteLine( "6. feladat" );
+            for(i=1;i<=7;i++)
+                Console.WriteLine("{0}. nap: {1}",i,  km[i]);
+            Console.WriteLine( "7. feladat " );
+            int tav;
+            Console.WriteLine( "Kerek egy tavot: ");
+            tav = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine( "Ennyi fizettseg jar erte forintan: {0}",  fizet(tav) );
+            Console.WriteLine( "8. feladat " );
+            int osszfiz=0;
+            StreamWriter ki = new StreamWriter("dijazas.txt");
+            for(i=0;i<=db;i++){
+                ki.WriteLine("{0}. nap {1}. ut: {2} Ft", rekord[i].nap, rekord[i].fuvar,  fizet(rekord[i].hossz));
+                osszfiz+=fizet(rekord[i].hossz);
+            }
+            ki.Flush();
+            ki.Close();
+            Console.WriteLine( "Kesz a dijazas.txt fajl." );
+            Console.WriteLine( "9. feladat " );
+            Console.WriteLine( "Heti munkajaert a futar ennyi Ft-ot kapott: {0}",  osszfiz);
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_szamlalociklus_10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i;
+            Console.Write( "  ");
+            for (i = 1; i <= 50; i++)
+                Console.Write( i / 10);
+            Console.WriteLine();
+            Console.Write( "  ");
+            for (i = 1; i <= 50; i++)
+                Console.Write( i % 10);
+            Console.WriteLine();
+            for (i = 1; i <= 50; i++)
+                Console.WriteLine( "{0}{1}",i / 10,i % 10);
+            Console.ReadLine();
+        }
+    }
+}

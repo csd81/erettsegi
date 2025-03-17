@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_tipuskenyszerites_1_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            int sz, n;
+            Console.Write(  "Kerem a tort szamlalojat: ");
+            sz = Convert.ToInt16(Console.ReadLine());
+            Console.Write(  "Kerem a tort nevezojet: ");
+            n = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine(  "{0}/{1} = {2} egesz {3}/{4} = {5}", sz, n, sz/n, sz - (n * (sz / n)), n, (float)sz / (float)n);
+            //2. feladat
+            Console.Write(  "Kerek egy 10..15 szamot: ");
+            sz = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine(  "A szam hexadecimalis alakja: {0}",  (char)(sz + 55));
+            //3. feladat
+            Console.Write(  "Kerek egy a..f hexadecimalis szamot: ");
+            char h;
+            h = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine("A szam decimalis alakja: {0}", (int)h - 87);
+            //4. feladat
+            string str1, str2;
+            Console.Write(  "Kerem az elso karakterlancot (xxszoveg) ");
+            str1 = Console.ReadLine();
+            Console.Write(  "Kerem a masodik karakterlancot (yyszoveg) ");
+            str2 = Console.ReadLine();
+            int elso, masodik;
+            elso=Convert.ToInt16(str1.Substring(0, 2));
+            masodik=Convert.ToInt16(str2.Substring(0, 2));
+            Console.WriteLine(  "A szamok osszege: {0}",elso + masodik);
+            //5. feladat
+            Random rnd = new Random();
+            Console.WriteLine("Veletlen kisbetu: {0}", (char)(rnd.Next(97, 123)));
+            Console.ReadLine();
+        }
+    }
+}

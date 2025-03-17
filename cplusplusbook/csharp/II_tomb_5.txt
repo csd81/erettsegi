@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+
+namespace II_tomb_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string beker;
+            Console.Write( "Kerek egy ketjegyu hexadec. szamot (pl. A9): ");
+            beker = Console.ReadLine();
+            Hashtable ertek = new Hashtable();
+            ertek['0'] = 0;
+            ertek['1'] = 1;
+            ertek['2'] = 2;
+            ertek['3'] = 3;
+            ertek['4'] = 4;
+            ertek['5'] = 5;
+            ertek['6'] = 6;
+            ertek['7'] = 7;
+            ertek['8'] = 8;
+            ertek['9'] = 9;
+            ertek['A'] = 10;
+            ertek['B'] = 11;
+            ertek['C'] = 12;
+            ertek['D'] = 13;
+            ertek['E'] = 14;
+            ertek['F'] = 15;
+            Console.WriteLine( "Tizes szamrendszerben: {0}", 16 * (int)ertek[beker[0]] + (int)ertek[beker[1]]);
+            Console.ReadLine();
+        }
+    }
+}

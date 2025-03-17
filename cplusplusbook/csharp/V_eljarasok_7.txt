@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_eljarasok_7
+{
+    class Program
+    {
+        static void fordit(string szo)
+        {
+            string seged;
+            seged = "";
+            for (int i = szo.Length - 1; i >= 0; i--)
+                seged += szo[i];
+            szo = seged;
+            Console.Write(szo);
+        }
+        static void Main(string[] args)
+        {
+            string beker;
+            Console.Write("Kerek egy szot: ");
+            beker = Console.ReadLine();
+            fordit(beker);
+            Console.ReadLine();
+        }
+    }
+}

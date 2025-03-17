@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace V_valtozok_2
+{
+    class Program
+    {
+        static int[,] r = new int[50, 50];
+        static int[,] g = new int[50, 50];
+        static int[,] b = new int[50, 50];
+        static void megjelenit()
+        {
+            int i, j;
+            Console.Write("   ");
+            for (i = 0; i <= 49; i++)
+                Console.Write(i / 10);
+            Console.WriteLine();
+            Console.Write("   ");
+            for (i = 0; i <= 49; i++)
+                Console.Write(i % 10);
+            Console.WriteLine("\n");
+            for (i = 0; i <= 49; i++)
+            {
+                Console.Write("{0}{1} ", i / 10, i % 10);
+                for (j = 0; j <= 49; j++)
+                {
+                    if (r[i, j] == 255 && g[i, j] == 0 && b[i, j] == 0)
+                        Console.Write('P');
+                    else
+                    {
+                        if (r[i, j] == 0 && g[i, j] == 255 && b[i, j] == 0)
+                            Console.Write('Z');
+                        else
+                        {
+                            if (r[i, j] == 0 && g[i, j] == 0 && b[i, j] == 255)
+                                Console.Write('K');
+                            else
+                            {
+                                if (r[i, j] == 255 && g[i, j] == 255 && b[i, j] == 0)
+                                    Console.Write('S');
+                                else
+                                {
+                                    if (r[i, j] == 0 && g[i, j] == 0 && b[i, j] == 0)
+                                        Console.Write('F');
+                                    else Console.Write('.');
+                                }
+                            }
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+        static void keret()
+        {
+            int i, j;
+            for (i = 0; i <= 49; i++)
+                for (j = 0; j <= 2; j++)
+                {
+                    r[i, j] = 0;
+                    g[i, j] = 0;
+                    b[i, j] = 0;
+                    r[i, j + 47] = 0;
+                    g[i, j + 47] = 0;
+                    b[i, j + 47] = 0;
+                    r[j, i] = 0;
+                    g[j, i] = 0;
+                    b[j, i] = 0;
+                    r[j + 47, i] = 0;
+                    g[j + 47, i] = 0;
+                    b[j + 47, i] = 0;
+                }
+        }
+        static void Main(string[] args)
+        {
+            int i, j;
+            string sor;
+            string[] reszek;
+            StreamReader be = new StreamReader("kep.txt");
+            for (i = 0; i <= 49; i++)
+                for (j = 0; j <= 49; j++)
+                {
+                    sor = be.ReadLine();
+                    reszek = sor.Split(' ');
+                    r[i, j] = Convert.ToInt16(reszek[0]);
+                    g[i, j] = Convert.ToInt16(reszek[1]);
+                    b[i, j] = Convert.ToInt16(reszek[2]);
+                }
+            be.Close();
+            megjelenit();
+            keret();
+            megjelenit();
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_feltetelesciklus_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, n;
+            Console.Write( "Adjon meg egy pozitiv egeszet: ");
+            n = Convert.ToInt16(Console.ReadLine());
+            i = 2;
+            while (i * i <= n && n % i != 0) i++;
+            if (i * i > n) Console.Write( "prim");
+            else Console.Write( "nem prim");
+            Console.ReadLine();
+        }
+    }
+}

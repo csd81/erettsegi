@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_konzolablak_1_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            string nev;
+            Console.WriteLine(   "Mi a neved? ");
+            nev = Console.ReadLine();
+            Console.WriteLine("Hello {0}!", nev);
+            //2. feladat
+            int egesz;
+            Console.Write(   "Kerek egy egesz szamot: ");
+            egesz = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine(   "A 2. feladat tesztje: {0}.", egesz);
+            //3. feladat
+            string szo1 = "abba";
+            string szo2 = "baba";
+            Console.WriteLine(   "A {0} az {1} anagrammaja.", szo2, szo1);
+            //4. feladat
+            int sz1 = 24;
+            int n1 = 32;
+            int sz2 = 3;
+            int n2 = 4;
+            Console.WriteLine("{0}/{1} = {2}/{3}", sz1, n1, sz2, n2);
+            Console.ReadLine();
+        }
+    }
+}

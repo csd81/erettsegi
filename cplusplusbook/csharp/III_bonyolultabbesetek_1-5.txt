@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_bonyolultabbesetek_1_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            double v;
+            Console.Write(  "Kerek egy valos szamot: ");
+            v = Convert.ToDouble(Console.ReadLine());
+            if (v < 0) Console.WriteLine(  "A szam negativ." ) ;
+            else
+            {
+                if (v == 0) Console.WriteLine(  "A szam nulla.")  ;
+                else Console.WriteLine(  "A szam pozitiv.")  ;
+            }
+            //2. feladat
+            int x, y;
+            Console.Write(  "Kerek egy egesz szamot : ");
+            x = Convert.ToInt16(Console.ReadLine());
+            Console.Write(  "Kerek egy masik egesz szamot : ");
+            y = Convert.ToInt16(Console.ReadLine());
+            if (x > y)
+                Console.WriteLine( "{0} {1}",y,x) ;
+            else
+            {
+                if (x == y) Console.WriteLine(x);
+                else Console.WriteLine(  "{0} {1}",x,y );
+            }
+            //3. feladat
+            int tav, fizetes;
+            Console.Write(  "Kerek egy tavolsagot (1-30): ");
+            tav = Convert.ToInt16(Console.ReadLine());
+            if (tav < 3) fizetes = 500;
+            else
+            {
+                if (tav < 6) fizetes = 700;
+                else
+                {
+                    if (tav < 11) fizetes = 900;
+                    else
+                    {
+                        if (tav < 21) fizetes = 1400;
+                        else fizetes = 2000;
+                    }
+                }
+            }
+            Console.WriteLine(  "Dijazas: {0} Ft.", fizetes)  ;
+            //4. feladat
+            int sz, h;
+            double ado;
+            Console.Write(  "A telek hosszusaga: ");
+            h = Convert.ToInt16(Console.ReadLine());
+            Console.Write(  "A telek szelessege: ");
+            sz = Convert.ToInt16(Console.ReadLine());
+            Console.Write(  "Ado kedvezmeny elott: ");
+            ado = Convert.ToDouble(Console.ReadLine());
+            if (sz <= 15 || h <= 25) ado *= 0.8;
+            Console.WriteLine(  "Kedvezmenyes ado: {0}",  ado);
+            //5. feladat
+            double a, b, c;
+            Console.Write(  "Kerem az 1. szakasz hosszat: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.Write(  "Kerem a 2. szakasz hosszat: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.Write(  "Kerem az 3. szakasz hosszat: ");
+            c = Convert.ToDouble(Console.ReadLine());
+            if (a + b > c && a + c > b && b + c > a)
+                Console.WriteLine(  "Szerkesztheto haromszog.");
+            else
+                Console.WriteLine(  "Nem szerkesztheto haromszog.");
+            Console.ReadLine();
+        }
+    }
+}

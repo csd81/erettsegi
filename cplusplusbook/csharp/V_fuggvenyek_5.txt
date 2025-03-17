@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_fuggvenyek_5
+{
+    class Program
+    {
+        static bool prime(int n)
+        {
+            int i = 2;
+            while (i * i <= n && n % i != 0) i++;
+            return (i * i > n);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine(prime(13));
+            Console.WriteLine(prime(24));
+            Console.ReadLine();
+        }
+    }
+}

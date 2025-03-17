@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+
+namespace II_tomb_4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //a - b) feladat
+            int[,] tabla = new int[8,8]{
+                {0,0,0,0,0,4,0,12},
+                {0,0,5,0,0,0,0,0},
+                {0,0,0,0,0,0,0,6},
+                {0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0},
+                {0,0,0,0,0,0,0,0}
+            };
+            //c) feladat
+            Console.WriteLine("2. sor 3 oszlop: {0}", tabla[1, 2]);
+            //d) feladat
+            int s,o;
+            Console.Write( "Kerek egy sor szamot (1..8): ");
+            s = Convert.ToInt16(Console.ReadLine());
+            Console.Write( "Kerek egy oszlop szamot (1..8): ");
+            o = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine( tabla[s-1,o-1])  ;
+            //e) feladat
+            char[] fig= new char[13]{'.','G','H','F','B','V','K','g','h','f','b','v','k'};
+            Console.WriteLine( fig[tabla[s-1,o-1]])    ;
+            //f) feladat
+            string poz;
+            Console.Write( "Kerek egy poziciot (pl. A5): ");
+            poz = Console.ReadLine();
+            Hashtable bsz = new Hashtable();
+            bsz['A']=0;
+            bsz['B']=1;
+            bsz['C']=2;
+            bsz['D']=3;
+            bsz['E']=4;
+            bsz['F']=5;
+            bsz['G']=6;
+            bsz['H']=7;
+            bsz['1']=0;
+            bsz['2']=1;
+            bsz['3']=2;
+            bsz['4']=3;
+            bsz['5']=4;
+            bsz['6']=5;
+            bsz['7']=6;
+            bsz['8']=7;
+            Console.WriteLine(fig[tabla[(int)bsz[poz[0]],(int)bsz[poz[1]]]]);
+            Console.ReadLine();
+        }
+    }
+}

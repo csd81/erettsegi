@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace III_feltetelesciklus_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a,b;
+            Console.Write("Irjuk be az elso egeszet: ");
+            a = Convert.ToInt16(Console.ReadLine());
+            Console.Write("Irjuk be a masodik egeszet: ");
+            b = Convert.ToInt16(Console.ReadLine());
+            while (a!=b) {
+                if (a>b) a-=b;
+                else b-=a;
+            }
+            Console.Write("A legnagyobb kozos oszto: {0}", a);
+            Console.ReadLine();
+        }
+    }
+}

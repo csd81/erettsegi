@@ -1,0 +1,5 @@
+word = input("Kérek egy szót: ")
+n = len(word)
+print("A szó hossza: ", n)
+print("A kezdőbetűje: ", word[0])
+print("Az utolsó betúje: ", word[n-1])

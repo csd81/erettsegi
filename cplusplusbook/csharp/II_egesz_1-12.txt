@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace II_egesz_1_12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            int a, b;
+            Console.Write( "Adjon meg egy egesz szamot: ");
+            a = Convert.ToInt16(Console.ReadLine());
+            Console.Write("Adjon meg egy masik egesz szamot: ");
+            b = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine( "A kert terulete {0} negyzetmeter. {1} metert kell gyalogolnia a kert korbejarasahoz.",a*b, 2*(a+b));
+            //2. feladat
+            int egesz;
+            Console.WriteLine( "paros/paratlan");
+            Console.Write( "Kerek egy egesz szamot: ");
+            egesz = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine(egesz % 2);
+            //3. feladat
+            int ketjegyu;
+            Console.Write( "Kerek egy ketjegyu egesz szamot: ");
+            ketjegyu = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine( "Egyesek helyen all: {0}", ketjegyu % 10);
+            //4. feladat
+            Console.WriteLine( "Tizesek helyen all: {0}", ketjegyu / 10 );
+            //5. feladat
+            int haromjegyu;
+            Console.WriteLine( "Kerek egy haromjegyu egesz szamot: ");
+            haromjegyu = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine( "A haromjegyu egyesei: {0}, tizesei: {1}, szazasai: {2}", haromjegyu % 10,(haromjegyu % 100) / 10, haromjegyu / 100);
+            //6. feladat
+            Console.WriteLine("{0}/{1} = {2}", 24, 6, 24 / 6);
+            //7. feladat
+            Console.WriteLine("{0}/{1} = {2}/{3}", 24, 8, 24 / 8,32 / 8);
+            //8. feladat
+            int sz;
+            Console.Write( "Kerek egy egesz szamot: ");
+            sz = Convert.ToInt16(Console.ReadLine());
+            sz = sz + 1;
+            Console.WriteLine( sz  );
+            sz = sz + 3;
+            Console.WriteLine( sz  );
+            sz = sz + 10;
+            Console.WriteLine( sz  );
+            sz = sz + 100;
+            Console.WriteLine( sz  );
+            //9. feladat
+            Console.Write( "Kerek egy egesz szamot: ");
+            sz = Convert.ToInt16(Console.ReadLine());
+            sz--;
+            Console.WriteLine( sz );
+            sz -= 3;
+            Console.WriteLine( sz );
+            sz -= 10;
+            Console.WriteLine( sz );
+            sz -= 100;
+            Console.WriteLine( sz );
+            //10. feladat
+            int x, y;
+            Console.Write( "Kerek egy egesz szamot: ");
+            x = Convert.ToInt16(Console.ReadLine());
+            Console.Write( "Kerek egy masik szamot: ");
+            y = Convert.ToInt16(Console.ReadLine());
+            x += y;
+            Console.WriteLine( x );
+            x -= y;
+            Console.WriteLine( x );
+            x *= y;
+            Console.WriteLine( x );
+            //11. feladat
+            Console.WriteLine( "dobokocka");
+            Random rnd = new Random();
+            Console.WriteLine(rnd.Next(1,7));
+            Console.WriteLine(rnd.Next(1,7));
+            //12. feladat
+            Console.WriteLine( "fej/iras" );
+            Console.WriteLine( rnd.Next(0,2));
+            Console.WriteLine( rnd.Next(0,2));
+            Console.WriteLine(rnd.Next(0,2));
+            Console.ReadLine();
+        }
+    }
+}

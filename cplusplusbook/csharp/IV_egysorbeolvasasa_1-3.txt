@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_egysorbeolvasasa_1_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. feladat
+            string sor;
+            string[] reszek;
+            StreamReader be = new StreamReader("kep.txt");
+            sor = be.ReadLine();
+            reszek=sor.Split(' ');
+            be.Close();
+            Console.WriteLine( "piros: {0}, zold: {1}, kek: {2}", reszek[0],reszek[1],reszek[2]);
+            //2. feladat
+            string[] darabok;
+            StreamReader betolt = new StreamReader("adat.txt");
+            sor = betolt.ReadLine();
+            darabok=sor.Split(' ');
+            betolt.Close();
+            Console.WriteLine("{0}/{1} {2} {3}/{4} = ",darabok[0],darabok[1],darabok[4],darabok[2],darabok[3]);
+
+            //3. feladat
+            string[] sorresz;
+            string[] napok = new string[7]{"hetfo","kedd","szerda","csutortok",
+                              "pentek","szombat","vasarnap"};
+            StreamReader befele = new StreamReader("tavok.txt");
+            sor = befele.ReadLine();
+            sorresz=sor.Split(' ');
+            int nap=Convert.ToInt16(sorresz[0]);
+            befele.Close();
+            Console.WriteLine( "{0} {1}. fuvar: {2} km", napok[nap], sorresz[1], sorresz[2])  ;
+            Console.ReadLine();
+        }
+    }
+}

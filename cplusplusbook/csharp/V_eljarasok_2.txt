@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace V_eljarasok_2
+{
+    class Program
+    {
+
+        static void elvalaszto(string feladat)
+        {
+            for (int i = 1; i <= 80; i++)
+                Console.Write('-');
+            Console.WriteLine("{0}. feladat\n", feladat);
+        }
+        static void Main(string[] args)
+        {
+            elvalaszto("3");
+            elvalaszto("b");
+            elvalaszto("3.b");
+            Console.ReadLine();
+        }
+    }
+}

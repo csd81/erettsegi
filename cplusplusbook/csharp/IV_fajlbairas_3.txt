@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace IV_fajlbairas_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int hsz;
+            Random rnd = new Random();
+            StreamWriter ki = new StreamWriter("telkek.txt");
+            for (hsz = 1; hsz <= 50; hsz++)
+                ki.WriteLine("{0} {1} {2}", hsz, rnd.Next(20, 50), rnd.Next(50, 100));
+            ki.Flush();
+            ki.Close();
+            Console.ReadLine();
+        }
+    }
+}
