@@ -376,8 +376,393 @@ This section builds upon the previous **Hungarian flag** drawing program by refi
 This section strengthens **Python programming** skills by integrating **functions, movement logic, and color customization**. 🚀
 
 4. Variables
+
+### **4. VARIABLES**
+This section introduces **variables** in Python, which allow us to write a **generalized function** that can draw **any tricolor flag** without modifying the code every time.
+
+---
+
+### **Concept: Why Use Variables?**
+- Instead of hardcoding the colors in our function, we can **use variables** to store **values** dynamically.
+- A **variable is a temporary storage space** that we can refer to by name.
+- Imagine a **labeled drawer**: you can put something in, check it later, and update it whenever needed.
+
+---
+
+### **Goal: A Flexible Tricolor Flag Function**
+We want to create a **function named `trikolor()`** that:
+- Accepts **three parameters** (colors for the top, middle, and bottom stripes).
+- Uses those parameters to draw a **tricolor flag** dynamically.
+
+---
+
+### **4th Example Task – Using Variables**
+1. **Open the `feladat_03.py` file.**
+2. **Modify the Program:**
+   - Add the **new function** `trikolor()` as shown below.
+   - The first **13 lines remain unchanged** from `feladat_03.py`.
+
+3. **Define the Function:**
+   - The `trikolor(f, k, a)` function accepts **three color parameters** (`f`, `k`, `a`).
+   - These represent the **top, middle, and bottom stripe colors**.
+
+4. **Using Variables in the Function:**
+   - Instead of hardcoding the colors, replace them with the **parameters**.
+
+---
+
+### **Final Python Code:**
+```python
+from turtle import *
+
+def teglalap():   # Function to draw a rectangle
+    begin_fill()
+    forward(400)
+    left(90)
+    forward(100)
+    left(90)
+    forward(400)
+    left(90)
+    forward(100)
+    left(90)
+    end_fill()
+
+def trikolor(f, k, a):   # Function to draw a tricolor flag
+    fillcolor(f)
+    teglalap()
+    up()
+    forward(100)
+    left(90)
+    down()
+    fillcolor(k)
+    teglalap()
+    up()
+    forward(100)
+    left(90)
+    down()
+    fillcolor(a)
+    teglalap()
+
+reset()
+color("gold")
+
+# Call the function with different color sets
+trikolor("red", "white", "green")     # Hungarian flag
+up()
+goto(-420, 0)     # Move turtle left
+down()
+trikolor("red", "yellow", "black")    # German flag
+```
+
+---
+
+### **Explanation:**
+- **Defining `trikolor(f, k, a)`**
+  - This function **receives three parameters** (`f`, `k`, `a`) to determine the flag colors.
+  - Instead of **hardcoding fill colors**, it **uses the passed values** dynamically.
+
+- **Calling the Function**
+  - `trikolor("red", "white", "green")` → **Draws the Hungarian flag**.
+  - Moves the turtle **left** using `goto(-420, 0)`.
+  - `trikolor("red", "yellow", "black")` → **Draws the German flag**.
+
+---
+
+### **Key Learning Points**
+✅ **Reusability** – The function works for any **tricolor flag**.  
+✅ **Efficiency** – No need to modify the function; just **change parameters**.  
+✅ **Scalability** – Easily extendable for **more flag designs**.  
+
+This lesson introduces **dynamic programming with variables**, making Python **more powerful and flexible**! 🚀
+
+### **Enhancing the Flag Drawing with Variables**
+This section refines the **tricolor flag drawing function** by optimizing how colors are passed and reusing code efficiently.
+
+---
+
+### **Key Improvements**
+5. **Using Variables for Fill Colors:**
+   - Instead of hardcoding colors, the **fillcolor** command now takes the first parameter (`f`) for the **top stripe** (line 15).
+
+6. **Assigning the Middle and Bottom Colors:**
+   - The function assigns the **middle stripe** color from the **second parameter (`k`)** (line 21).
+   - The **bottom stripe** takes the **third parameter (`a`)** (lines 14 and 27).
+
+7. **Calling the Function Twice:**
+   - The `trikolor()` function is called twice to draw **two different flags** (lines 33 & 37).
+
+8. **Positioning Flags Correctly:**
+   - To prevent overlapping, the **second flag starts at (-420, 0)**.
+   - The `goto(-420, 0)` command moves the turtle to this **new position** (line 35).
+
+9. **Saving the Program:**
+   - Save the file as **feladat_04.py** and run it.
+
+---
+
+### **Understanding the Use of Variables**
+- **Text-type variables** store color names as **strings** (e.g., `"gold"` or `'gold'`).
+- **Numbers are unnecessary** for storing colors.
+- **Code Efficiency**:
+  - Without **functions**, the program would need **60+ lines**.
+  - By using **functions**, we reduced it to **just 7 lines**, saving **53 lines** of repetition.
+  - **Improves readability and maintainability**.
+
+---
+
+### **Additional Exercises**
+1. **Create a `dicolor()` Function:**
+   - Modify `feladat_04.py` to define a **dicolor function** for **two-striped horizontal flags**.
+   - The **flag size remains the same**.
+   - The function takes **two colors** (e.g., `"white", "red"` for the Polish flag).
+
+2. **Create a `trikolor()` Function for Vertical Flags:**
+   - Modify an earlier program (`gyak_04_1.py`) to handle **three-striped vertical flags**.
+   - The **flag dimensions match the horizontal tricolor flags**.
+   - The function takes **three colors**, assigning them to the **left, middle, and right stripes** (e.g., `"green", "white", "orange"` for the Irish flag).
+
+---
+
+### **Key Learning Points**
+✅ **Optimized Code** – Uses **functions and variables** instead of repetitive instructions.  
+✅ **Scalability** – Works for **multiple flag designs** with **minimal changes**.  
+✅ **Efficient Coding Practices** – Saves **53+ lines** and **improves readability**.
+
+This section builds **strong Python skills** by integrating **functions, parameters, and efficient code structures**! 🚀
+
+
 5. Branching
+### **5. CONDITIONAL STATEMENTS (Branching)**
+
+This section introduces **conditional statements (if-elif-else)** in Python, allowing a program to choose different actions based on given conditions.
+
+---
+
+### **Concept: Why Use Conditional Statements?**
+- Instead of calling different functions manually, we can **create a function that automatically selects the correct flag** based on the country's name.
+- The program will **branch** and execute different instructions depending on the country name given as input.
+
+---
+
+### **5th Example Task – Using Conditional Statements**
+We will create a function called **`zaszlo()`** that:
+- Accepts a **country name (`nemzet`)** as a parameter.
+- Draws the **appropriate horizontal tricolor flag** based on the country.
+- Defaults to a **white-white-white** flag if an unlisted country is entered.
+
+#### **Flag Assignments**
+| Country  | Colors (Top-Middle-Bottom) |
+|----------|----------------------------|
+| Hungary  | Red - White - Green        |
+| Austria  | Red - White - Red          |
+| Germany  | Black - Red - Yellow       |
+| Netherlands | Red - White - Blue      |
+| Others   | White - White - White (Error Flag) |
+
+---
+
+### **Final Python Code:**
+```python
+def zaszlo(nemzet):
+    if nemzet == "magyar":
+        trikolor("red", "white", "green")
+    elif nemzet == "osztrak":
+        trikolor("red", "white", "red")
+    elif nemzet == "nemet":
+        trikolor("black", "red", "yellow")
+    elif nemzet == "holland":
+        trikolor("red", "white", "blue")
+    else:
+        trikolor("white", "white", "white")  # Default flag for incorrect input
+
+reset()
+color("gold")
+
+zaszlo("magyar")  # Draw Hungarian flag
+
+up()
+goto(-420, 0)  # Move turtle left for second flag
+down()
+
+zaszlo("nemet")  # Draw German flag
+```
+
+---
+
+### **Explanation**
+1. **Defining `zaszlo(nemzet)`**
+   - The function takes a **country name** as input.
+   - The **`if` statement** checks if `nemzet` matches a known country.
+   - If a match is found, it calls `trikolor()` with the correct **colors**.
+   - If no match is found, the **default flag** (`white-white-white`) is drawn.
+
+2. **Using `if`, `elif`, and `else`**
+   - `if` checks for **Hungary**.
+   - `elif` checks for **Austria, Germany, and Netherlands**.
+   - `else` assigns a **default flag** for **unknown country names**.
+
+3. **Calling the Function**
+   - `zaszlo("magyar")` → Draws **Hungarian flag**.
+   - Moves the turtle **left** (`goto(-420, 0)`).
+   - `zaszlo("nemet")` → Draws **German flag**.
+
+---
+
+### **Key Learning Points**
+✅ **Automated Decision Making** – The function chooses the correct flag **based on input**.  
+✅ **Efficiency** – No need to manually call `trikolor()` for each flag.  
+✅ **Error Handling** – Unrecognized inputs result in a **white-white-white flag**.  
+
+This section introduces **if-elif-else logic**, a fundamental concept in Python programming! 🚀
+
+### **Enhancing Conditional Logic in the Flag Drawing Program**
+This section expands the **zaszlo()** function, introducing additional countries and refining **conditional statements (`if-elif-else`)**.
+
+---
+
+### **Understanding Conditional Execution**
+- If the input matches `"magyar"`, the function calls `trikolor()` with Hungary’s flag colors.
+- If `"magyar"` **is not matched**, the program **skips that part** and checks the next condition (`elif`).
+- If `"osztrak"` is given, the Austrian flag is drawn.
+- The same logic applies to other countries.
+- If no match is found, the function **defaults** to a **white-white-white** flag.
+
+---
+
+### **Key Steps in the Code**
+5. **Using `if` for Hungary**  
+   - Calls `trikolor("red", "white", "green")`.
+
+6. **Using `elif` for Other Countries**  
+   - Each `elif` checks for another country name.
+   - Example:  
+     ```python
+     elif nemzet == "osztrak":
+         trikolor("red", "white", "red")
+     ```
+   - The last `elif` is for Germany.
+
+7. **Adding `else` for Invalid Inputs**  
+   - If **none of the conditions match**, it executes:
+     ```python
+     else:
+         trikolor("white", "white", "white")
+     ```
+   - This displays a **default flag** to indicate an invalid input.
+
+8. **Modifying the Main Program**  
+   - Replace `trikolor()` calls with `zaszlo()`, passing the **country name** as an argument.
+
+9. **Saving and Running the Program**  
+   - Save the file as **feladat_05.py**.
+   - Run it to see different flags based on input.
+
+---
+
+### **Additional Exercises**
+1. **Extend `feladat_05.py`**  
+   - Add support for the **Yemeni** (red-white-black) and **Russian** (white-blue-red) flags.
+
+2. **Modify `gyak_05_1.py`**  
+   - Detect and draw **vertically striped** flags like:
+     - **Polish (red-white)**
+     - **Monaco (red-white)**
+     - **Nigerian (green-white-green)**
+     - **Italian (green-white-red)**
+
+3. **Understanding `==` vs. `=` in Python**  
+   - `==` checks if two values are **equal**.
+   - `=` assigns a **new value** to a variable.
+   - Example:
+     ```python
+     a = 2  # Assigns 2 to 'a'
+     if a == 2:  # Checks if 'a' is equal to 2
+         print("a is 2")
+     ```
+
+---
+
+### **Key Learning Points**
+✅ **Expands Condition Handling** – Can now handle **more country flags**.  
+✅ **Code Efficiency** – Uses **functions** instead of repeating code.  
+✅ **Logical Comparisons** – Introduces `==`, `!=`, `<`, `>` operators.  
+
+This section builds on **control flow in Python**, reinforcing **decision-making and automation**! 🚀
+
 6. Counting cycle
+
+### **6. COUNTED LOOPS (For Loop)**
+
+This section introduces **loops** in Python, allowing the program to **repeat instructions** efficiently instead of writing them multiple times.
+
+---
+
+### **6th Example Task – Repeating a Program Section with a Loop**
+We will write a program that **draws a regular octagon**, where each side is **100 pixels long**.
+
+---
+
+### **Steps to Draw an Octagon**
+1. **Open the Python Command Prompt**
+   - Open the Python Shell and type commands manually.
+
+2. **Clear the Screen and Reset the Turtle**
+   ```python
+   reset()
+   ```
+   - This clears the **graphics window** and resets the **turtle’s position**.
+
+3. **Draw the First Side**
+   ```python
+   forward(100)
+   ```
+   - Moves the turtle **forward by 100 pixels**.
+
+4. **Turn Right by 45 Degrees**
+   ```python
+   right(45)
+   ```
+   - Rotates the turtle **to start drawing the next side**.
+
+5. **Repeat Steps 3 and 4 for a Total of 8 Times**
+   - Instead of **writing this eight times manually**, we use a **loop**.
+
+---
+
+### **Using a For Loop**
+A **loop** allows Python to **repeat the same instructions** automatically.
+
+```python
+from turtle import *
+
+reset()  # Clear screen and reset turtle
+
+for _ in range(8):  # Repeat 8 times
+    forward(100)  # Move forward
+    right(45)  # Turn right 45 degrees
+```
+
+---
+
+### **Explanation**
+- `for _ in range(8):`  
+  - This means **"repeat the following block 8 times"**.
+- `_` is a **throwaway variable** (since we don’t use it inside the loop).
+- Inside the loop:
+  - The turtle **moves forward 100 pixels**.
+  - The turtle **turns right by 45 degrees**.
+- After 8 repetitions, the turtle **completes the octagon**.
+
+---
+
+### **Key Learning Points**
+✅ **Eliminates Repetition** – The **loop replaces 16 lines of manual code**.  
+✅ **Efficient** – We can easily **change the number of sides** by modifying `range(8)`.  
+✅ **Flexible** – This method works for **other polygons** (e.g., hexagons, pentagons).  
+
+This section introduces **counted loops (`for` loops)**, a fundamental programming concept for **automation and efficiency**! 🚀
+
+
 7. Using variables
 8. Random number
 9. List
