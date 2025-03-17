@@ -1257,6 +1257,146 @@ for _ in range(50):  # Draw 50 stars
 These tasks reinforce **randomized movement** and **pattern generation** using Python Turtle! 🚀✨
 
 9. List
+
+### **9. LIST (Array)**
+Lists store multiple values in a single variable, making programs **simpler and more efficient** when handling multiple items.
+
+---
+
+### **11th Example Task – Understanding Lists**
+1. **Open the Python Shell**
+   - Type commands interactively.
+
+2. **Create a List**
+   ```python
+   szin = ["green", "red", "blue"]
+   ```
+   - `szin` is a **list variable** storing three color names.
+
+3. **Check the List**
+   ```python
+   szin
+   ```
+   - Prints `["green", "red", "blue"]`, confirming the list exists.
+
+4. **Access List Elements**
+   ```python
+   szin[0]
+   ```
+   - Returns `"green"` because **indexing starts at 0**.
+
+5. **Understanding Indexing**
+   - **First item** → `szin[0]` → `"green"`
+   - **Second item** → `szin[1]` → `"red"`
+   - **Third item** → `szin[2]` → `"blue"`
+
+---
+
+### **Key Learning Points**
+✅ **Lists Store Multiple Values** – Instead of separate variables, we use **one list**.  
+✅ **Indexing Starts at 0** – The first element is always at **index 0**.  
+✅ **Lists Make Programs Simpler** – Easy to **store and retrieve** multiple values.
+
+This lesson introduces **lists**, a fundamental data structure in Python! 🚀
+
+---
+
+### **Using Lists for Random Selection**
+
+This section explores how to use **lists** and **random numbers** to create a **randomized star drawing program** with different colors.
+
+---
+
+### **Understanding Lists & Indexing**
+- **Lists store multiple values** (e.g., colors).
+- Elements are accessed using **index numbers** (`szin[0]`, `szin[1]`, etc.).
+- **Indexes start at `0`**.
+- Trying to access an **out-of-range index** (e.g., `szin[3]` when only 3 items exist) causes an `IndexError`.
+
+### **Generating a Random Index**
+- Import the `randrange` function:
+  ```python
+  from random import randrange
+  ```
+- Generate a **random number from 0 to 2**:
+  ```python
+  y = randrange(0, 3)
+  ```
+- Use it to select a **random color from the list**:
+  ```python
+  szin[y]
+  ```
+
+---
+
+### **12th Example Task – Using Lists in a Star Drawing Program**
+This program draws a **starburst shape** where:
+- Each ray is **200 units long**.
+- There are **20 rays**.
+- Each ray is drawn in a **random color**.
+
+---
+
+### **Steps to Create the Program**
+1. **Create a New Program**
+   - Save it as **feladat_09_1.py**.
+
+2. **Define a List of Colors**
+   ```python
+   szin = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "cyan", "white"]
+   ```
+   - The list contains **9 colors**.
+
+3. **Use a Loop for 20 Rays**
+   ```python
+   for i in range(20):
+   ```
+   - The loop repeats **20 times**, drawing each ray.
+
+4. **Select a Random Color**
+   ```python
+   y = randrange(0, 9)
+   pencolor(szin[y])  # Choose a random color
+   ```
+
+5. **Draw a Ray**
+   ```python
+   forward(200)
+   backward(200)
+   left(18)  # Rotate for next ray
+   ```
+
+6. **Save and Run**
+   - Press **F5** to execute.
+
+---
+
+### **Final Python Code**
+```python
+from turtle import *
+from random import randrange
+
+szin = ["red", "blue", "green", "yellow", "purple", "orange", "pink", "cyan", "white"]
+
+speed(0)  # Fast drawing
+
+for i in range(20):
+    y = randrange(0, 9)  # Get random index
+    pencolor(szin[y])  # Select a random color
+    forward(200)
+    backward(200)
+    left(18)
+```
+
+---
+
+### **Key Learning Points**
+✅ **Lists Store Multiple Values** – Reduces repetitive code.  
+✅ **Random Selection from a List** – Uses `randrange()` for **randomized drawing**.  
+✅ **Looping & Colors** – Draws a colorful **starburst pattern**.
+
+This section introduces **dynamic drawing with lists**, making Python **more flexible for graphics**! 🚀🎨
+
 10. Conditional loop
 11. Recursion
 
