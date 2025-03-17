@@ -762,6 +762,64 @@ for _ in range(8):  # Repeat 8 times
 
 This section introduces **counted loops (`for` loops)**, a fundamental programming concept for **automation and efficiency**! 🚀
 
+### **6. COUNTED LOOPS (For Loop) – Continued**
+
+This section continues with **for loops**, focusing on **loop variables** and more **efficient shape drawing**.
+
+---
+
+### **Key Insights**
+8. **Typing the Code Precisely**  
+   - Enter the commands **exactly as shown**, pressing **Enter** after each line.
+
+9. **Understanding the For Loop in Line 3**
+   ```python
+   for i in range(8):
+   ```
+   - This is a **counted loop**, running **8 times**.
+   - `i` is the **loop variable**, increasing from **0 to 7**.
+   - The loop **repeats the commands** below it each time.
+
+10. **Loop Indentation**
+   - Python **requires indentation** (4 spaces or **Tab**) inside the loop.
+   - The commands **inside the loop**:
+     ```python
+     forward(100)
+     right(45)
+     ```
+   - These **repeat 8 times**, drawing the **octagon**.
+
+11. **Saving the Program**
+   - Click **File → Save As…** and name the file **feladat_06.py**.
+
+12. **Running the Program**
+   - Press **F5** to execute it.
+   - The **Turtle Graphics window** will display an **octagon**.
+
+---
+
+### **Additional Exercises**
+1. **Modify `feladat_06.py` to Draw a Hexagon**
+   - Change the loop to **repeat 6 times**.
+   - Modify the **turning angle**.
+
+2. **Draw a Tiled Wall of 20×20 Squares**
+   - Create **25 columns** and **12 rows**.
+   - Use **nested loops** to **reduce repetition**.
+
+3. **Draw the Star from the Image**
+   - The **rays** should be **200 units long**.
+   - Each **small square** at the end of a ray is **20×20 units**.
+   - Use **loops** to automate the drawing.
+
+---
+
+### **Key Learning Points**
+✅ **Loop Variables** – Allow precise repetition without manual code duplication.  
+✅ **Efficient Drawing** – **Eliminates redundant commands** with loops.  
+✅ **Nested Loops** – Enable complex **patterns and grid-based designs**.  
+
+This section reinforces **Python loops**, laying the groundwork for **automated pattern generation**! 🚀
 
 7. Using variables
 8. Random number
