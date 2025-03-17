@@ -964,7 +964,70 @@ for i in range(20):  # Repeat 20 times
 
 This method efficiently draws a **growing square spiral** using **loops and variables**! 🚀
 
+### **Optimizing the Spiral Drawing with Loop Variables**
 
+This section introduces **more efficient ways to modify step sizes** using the **loop variable itself**.
+
+---
+
+## **Second Version – Using the Loop Variable (`i`)**
+Instead of using a separate variable (`x`), we directly utilize **the loop variable `i`** to determine step length.
+
+### **Steps**
+1. **Create a New Program**
+   - Save it as **feladat_07_2.py**.
+
+2. **Modify the `for` Loop**
+   ```python
+   for i in range(20):
+       forward(10 * i + 10)
+       left(90)
+   ```
+   - The loop runs **20 times**.
+   - The step size is determined by:  
+     **`10 * i + 10`** → Results in **10, 20, 30, ..., 200**.
+
+3. **Save and Run**
+   - Press **F5** to execute.
+
+---
+
+## **Third Version – Adjusting the Loop Range (`range(start, stop, step)`)**
+A more **structured approach** to controlling the loop variable.
+
+### **Steps**
+1. **Create a New Program**
+   - Save it as **feladat_07_3.py**.
+
+2. **Modify the `for` Loop**
+   ```python
+   for i in range(10, 210, 10):
+       forward(i)
+       left(90)
+   ```
+   - **Start at 10**, end before **210**, increasing by **10** each time.
+   - Generates: **10, 20, 30, ..., 200**.
+
+3. **Save and Run**
+   - Press **F5**.
+
+---
+
+## **Key Differences**
+| Version | Step Calculation | Code Simplicity | Best Use Case |
+|---------|-----------------|-----------------|--------------|
+| **07_1** | Uses `x` as an independent variable | Simple, but extra variable needed | Beginner-friendly |
+| **07_2** | Uses `i` to generate step size dynamically | Removes extra variable | Efficient for fixed calculations |
+| **07_3** | Uses `range(start, stop, step)` | Most readable | Best for precise control |
+
+---
+
+### **Key Learning Points**
+✅ **Efficiency** – Directly using `i` eliminates extra calculations.  
+✅ **Loop Control** – `range(start, stop, step)` **simplifies step size adjustments**.  
+✅ **Scalability** – Easily adaptable for different patterns.
+
+These refinements **streamline programming logic**, making Python **more powerful and readable**! 🚀
 
 8. Random number
 9. List
