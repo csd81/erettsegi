@@ -1493,8 +1493,201 @@ for i in range(6):
 
 This section enhances **dynamic drawing**, making Python **more versatile in design and automation**! 🚀🎨
 
-
 10. Conditional loop
+
+### **10. CONDITIONAL LOOP (While Loop)**
+
+This section introduces **conditional loops (`while`)** to ensure **random color selections meet specific conditions**.
+
+---
+
+### **13th Example Task – Applying Conditional Loops**
+We modify `feladat_04.py` to:
+- Randomly select **three colors**.
+- Ensure **no two adjacent stripes** have the **same color**.
+- Use only **red, yellow, and blue** for **easy testing**.
+
+---
+
+### **Steps to Implement**
+1. **Open and Save the File**
+   - Open `feladat_04.py` and save it as **feladat_10.py**.
+
+2. **Import `randrange` for Random Numbers**
+   ```python
+   from random import randrange
+   ```
+
+3. **Modify the Main Program**
+   - The **functions remain unchanged**.
+   - We **only modify the main script**.
+
+4. **Define a List of Colors**
+   ```python
+   szin = ["red", "blue", "yellow"]
+   ```
+
+5. **Generate Three Random Indexes**
+   ```python
+   x = randrange(3)
+   y = randrange(3)
+   z = randrange(3)
+   ```
+
+6. **Ensure No Two Adjacent Colors Are the Same**
+   - Use a `while` loop to **regenerate `y` and `z` if needed**.
+   ```python
+   while y == x:  # Ensure y is different from x
+       y = randrange(3)
+
+   while z == y:  # Ensure z is different from y
+       z = randrange(3)
+   ```
+
+7. **Call the `trikolor` Function**
+   ```python
+   trikolor(szin[x], szin[y], szin[z])
+   ```
+
+8. **Save and Run**
+   - Press **F5** to test.
+   - Run multiple times to **see different valid flags**.
+
+---
+
+### **Final Python Code**
+```python
+from turtle import *
+from random import randrange
+
+reset()
+color("gold")
+
+szin = ["red", "blue", "yellow"]
+
+x = randrange(3)
+y = randrange(3)
+while y == x:  # Ensure adjacent stripes are different
+    y = randrange(3)
+
+z = randrange(3)
+while z == y:  # Ensure last stripe is different from the middle one
+    z = randrange(3)
+
+trikolor(szin[x], szin[y], szin[z])  # Draw the flag
+```
+
+---
+
+### **Key Learning Points**
+✅ **Random Selection with Conditions** – Ensures **no adjacent stripes** are the same.  
+✅ **Using `while` for Validation** – Re-rolls invalid values **until a valid choice is found**.  
+✅ **Modular Code** – The function `trikolor()` remains unchanged.
+
+This introduces **conditional loops** to **refine randomness**, making Python **more robust**! 🚀🎨
+
+----
+
+### **Conditional Loops & Advanced Randomization**
+
+This section further refines **randomized selection with validation**, ensuring **no two adjacent colors match** and modifying the **random walking turtle**.
+
+---
+
+### **Finalized Conditional Loop for Unique Flag Colors**
+We modify `feladat_10.py` to:
+- Select **random colors**.
+- Use **`while` loops** to prevent **consecutive identical colors**.
+
+#### **Python Code (Updated)**
+```python
+from turtle import *
+from random import randrange
+
+reset()
+color("gold")
+
+szin = ["red", "blue", "yellow"]
+
+x = randrange(3)
+
+# Ensure y is different from x
+y = randrange(3)
+while y == x:
+    y = randrange(3)
+
+# Ensure z is different from y
+z = randrange(3)
+while z == y:
+    z = randrange(3)
+
+trikolor(szin[x], szin[y], szin[z])  # Draw the flag
+```
+
+---
+
+### **Exercises**
+
+#### **1. Draw the Geometric Shape**
+- Randomly select **colors** from: **red, orange, yellow, green, blue, purple**.
+- Ensure **no adjacent colors are the same**.
+
+#### **Python Code**
+```python
+from turtle import *
+from random import choice
+
+szinek = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+speed(0)
+for i in range(6):
+    color_1 = choice(szinek)  # First color
+    color_2 = choice([c for c in szinek if c != color_1])  # Ensure different color
+
+    pencolor(color_1)
+    begin_fill()
+    for _ in range(4):
+        forward(100 + i * 20)
+        right(90)
+    end_fill()
+
+    pencolor(color_2)
+```
+
+---
+
+#### **2. Modify the Random Walk Turtle**
+- Ensure **it never moves in the same direction twice**.
+- Uses **90° or 180° turns**.
+
+#### **Python Code**
+```python
+from turtle import *
+from random import choice
+
+speed(0)
+
+directions = [90, -90, 180]
+prev_dir = None
+
+for _ in range(100):
+    forward(25)
+    
+    new_dir = choice([d for d in directions if d != prev_dir])  # Prevent same direction
+    left(new_dir)
+    
+    prev_dir = new_dir
+```
+
+---
+
+### **Key Learning Points**
+✅ **`while` loops ensure no two consecutive elements are identical.**  
+✅ **List comprehension prevents repeated movement directions.**  
+✅ **Randomized structured patterns ensure dynamic output.**  
+
+This section builds **conditional logic for randomized graphics**, making Python more **controlled yet dynamic**! 🚀🎨
+
 11. Recursion
 
 II. BASICS OF PROGRAMMING
