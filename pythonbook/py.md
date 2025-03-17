@@ -1125,6 +1125,73 @@ This section introduces **random number generation in Python**, which allows pro
 
 This section introduces **randomized programming**, useful in **games and simulations**! 🎲🚀
 
+### **10. Example Task – Using Random Numbers in a Program**
+This section demonstrates how to use **random numbers** in a Python program to create a **star-like shape** where the lengths of the rays are random.
+
+---
+
+### **Steps to Create the Random Star Shape**
+1. **Create a New Program**
+   - Open **File → New File**.
+   - Save it as **feladat_08_1.py**.
+
+2. **Import `randrange` for Random Numbers**
+   ```python
+   from random import randrange
+   ```
+   - This allows us to generate **random numbers**.
+
+3. **Use a Loop to Draw 20 Rays**
+   ```python
+   for i in range(20):
+   ```
+   - The loop runs **20 times**, once for each ray.
+
+4. **Generate a Random Length**
+   ```python
+   x = randrange(0, 200)
+   ```
+   - The ray length is chosen **randomly between 0 and 199**.
+
+5. **Move Forward and Backward to Draw the Ray**
+   ```python
+   forward(x)
+   backward(x)
+   ```
+   - Moves forward by **random `x`** and back to the center.
+
+6. **Rotate for the Next Ray**
+   ```python
+   left(18)
+   ```
+   - **360° divided by 20 rays = 18° per turn**.
+
+7. **Save and Run**
+   - Save and press **F5** to execute.
+
+---
+
+### **Final Python Code**
+```python
+from turtle import *
+from random import randrange
+
+for i in range(20):
+    x = randrange(0, 200)  # Random length
+    forward(x)
+    backward(x)
+    left(18)
+```
+
+---
+
+### **How It Works**
+✅ **Uses `randrange(0, 200)`** to generate a **random length**.  
+✅ **Moves forward and back** to **keep the turtle in the center**.  
+✅ **Evenly spaces the rays** by rotating **18° each time**.
+
+This introduces **randomness into graphics**, making Python great for **generative art and simulations**! 🚀
+
 
 9. List
 10. Conditional loop
