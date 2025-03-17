@@ -1029,7 +1029,103 @@ A more **structured approach** to controlling the loop variable.
 
 These refinements **streamline programming logic**, making Python **more powerful and readable**! 🚀
 
+### **Customizing the Loop with `range()` Parameters**
+
+This section explains how the `range()` function can be used with **one, two, or three parameters** to control loop behavior.
+
+---
+
+### **Understanding `range()` Variations**
+1. **One Parameter – Default Counting (`range(n)`)**
+   - Example: `range(10)` → Counts **0 to 9** (increments by `1`).
+   
+2. **Two Parameters – Custom Start (`range(start, stop)`)**
+   - Example: `range(5, 15)` → Counts **5 to 14** (increments by `1`).
+
+3. **Three Parameters – Custom Step (`range(start, stop, step)`)**
+   - Example: `range(0, 20, 2)` → Counts **0, 2, 4, ..., 18**.
+   - Example: `range(200, 0, -10)` → **Counts backward**: **200, 190, ..., 10**.
+
+---
+
+### **Exercises**
+1. **Modify `feladat_07_1.py`**
+   - Change the **spiral direction** to rotate **right** (`right(90)`) instead of **left**.
+   
+2. **Draw the Left-side Shape**
+   - Use **minimal instructions** (likely a **loop**).
+
+3. **Draw the Middle Shape**
+   - Again, **minimize code** using a **loop**.
+
+4. **Draw the Right-side Shape**
+   - Use a **loop** for efficiency.
+   - If needed, **calculate diagonal lengths** (hint in the footnote).
+
+---
+
+### **Key Learning Points**
+✅ **Using `range()` Effectively** – Controls loop **start, stop, and step size**.  
+✅ **Loop Direction** – `right(90)` vs. `left(90)`.  
+✅ **Minimizing Code** – Efficient use of **loops**.  
+
+This section helps refine Python **looping skills** for **smarter automation**! 🚀
+
 8. Random number
+
+### **8. RANDOM NUMBERS**
+This section introduces **random number generation in Python**, which allows programs to behave **unpredictably**, like a dice roll or coin flip.
+
+---
+
+### **Understanding Random Numbers in Python**
+- Computers can generate **random values** using Python’s **`random` module**.
+- These numbers can be used for **games, simulations, and random selections**.
+
+---
+
+### **9th Example Task – Getting Started with Random Numbers**
+1. **Open the Python Shell**
+   - Start an interactive session.
+
+2. **Import the `randrange` Function**
+   ```python
+   from random import randrange
+   ```
+   - This allows us to **generate random numbers**.
+
+3. **Generate a Random Number (0 to 5)**
+   ```python
+   randrange(6)
+   ```
+   - Returns a random number **from 0 to 5**.
+
+4. **Modify for a Dice Roll (1 to 6)**
+   ```python
+   randrange(6) + 1
+   ```
+   - Ensures values are **1, 2, 3, 4, 5, or 6** (instead of starting at 0).
+
+5. **Check Results**
+   - Run it **multiple times** to see **different values**.
+
+6. **Generate a Random Number in a Custom Range**
+   ```python
+   randrange(1, 7)
+   ```
+   - Produces **1 to 6**, like a **dice roll**.
+   - `randrange(start, stop)` includes the **start** but **excludes** the stop.
+
+---
+
+### **Key Learning Points**
+✅ **Randomness in Python** – `randrange()` simulates **dice, coins, and more**.  
+✅ **Controlling Ranges** – `randrange(a, b)` generates numbers in **[a, b-1]**.  
+✅ **Practical Uses** – Can apply to **colors, movement, or random behavior**.  
+
+This section introduces **randomized programming**, useful in **games and simulations**! 🎲🚀
+
+
 9. List
 10. Conditional loop
 11. Recursion
