@@ -900,6 +900,72 @@ for _ in range(16):  # Repeat 16 times
 
 This section teaches **essential programming logic**, making Python **more powerful for automation**! 🚀
 
+### **8. Example Task – Using Variables in a Program**
+
+This section explains how to use **variables and loops** to draw a **spiral pattern**, where each step is longer than the previous one.
+
+---
+
+### **Step-by-Step Instructions**
+1. **Create a New Program**
+   - Open **File → New File** in Python IDLE.
+   - Save it as **feladat_07_1.py**.
+
+2. **Initialize a Variable**
+   ```python
+   x = 10
+   ```
+   - The turtle will move **10 units** initially.
+
+3. **Set Up a Loop**
+   ```python
+   for i in range(20):
+   ```
+   - The loop will **repeat 20 times**, drawing each segment.
+
+4. **Move Forward and Turn Left**
+   ```python
+   forward(x)
+   left(90)
+   ```
+   - Moves the turtle **forward by `x`** units.
+   - Rotates **90 degrees left**.
+
+5. **Increase the Length of Each Step**
+   ```python
+   x += 10
+   ```
+   - After each loop iteration, `x` increases by **10**.
+   - The next segment will be **longer**.
+
+6. **Save and Run**
+   - Save the file and press **F5** to execute.
+
+---
+
+### **Final Python Code**
+```python
+from turtle import *
+
+x = 10  # Initial step length
+
+for i in range(20):  # Repeat 20 times
+    forward(x)
+    left(90)
+    x += 10  # Increase step size
+```
+
+---
+
+### **How It Works**
+✅ **Starts with a Short Step** – `x = 10`.  
+✅ **Each Step Gets Longer** – `x` increases by `10` every time.  
+✅ **Forms a Spiral** – The turtle **keeps turning left**, creating the shape.
+
+This method efficiently draws a **growing square spiral** using **loops and variables**! 🚀
+
+
+
 8. Random number
 9. List
 10. Conditional loop
