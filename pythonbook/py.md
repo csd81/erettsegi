@@ -1397,6 +1397,103 @@ for i in range(20):
 
 This section introduces **dynamic drawing with lists**, making Python **more flexible for graphics**! 🚀🎨
 
+-----
+
+### **Expanding Randomized Drawing with Colors and Shapes**
+This section builds on **random colors and structured patterns** to create **stars, flags, and geometric designs**.
+
+---
+
+### **Tasks**
+
+#### **1. Draw the Star with Colored Rays and Squares**
+- Each ray should have a **matching color** for its **end square**.
+- Colors should cycle: **red, orange, yellow, green, blue**.
+
+**Python Code:**
+```python
+from turtle import *
+from random import choice
+
+colors = ["red", "orange", "yellow", "green", "blue"]
+
+speed(0)
+for i in range(10):  # 10 rays
+    pencolor(colors[i % len(colors)])  # Cycle colors
+    forward(100)  # Draw ray
+    begin_fill()
+    for _ in range(4):  # Draw square at the end
+        forward(20)
+        right(90)
+    end_fill()
+    backward(100)  # Return to center
+    right(36)  # Rotate
+```
+
+---
+
+#### **2. Modify the Flag Drawing Program to Randomly Select a Country**
+- Keep the existing **flag-drawing function**.
+- Randomly pick a **country name** from a list.
+
+**Python Code:**
+```python
+from random import choice
+
+countries = ["magyar", "osztrak", "nemet", "holland"]
+random_country = choice(countries)
+zaszlo(random_country)  # Call the flag function
+```
+
+---
+
+#### **3. Draw the Geometric Design with Predefined Colors**
+- Colors cycle: **red, orange, yellow, green, blue, purple**.
+
+**Python Code:**
+```python
+from turtle import *
+
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+speed(0)
+for i in range(6):  # 6 nested squares
+    pencolor(colors[i % len(colors)])  # Cycle through colors
+    for _ in range(4):  # Draw square
+        forward(100 + i * 20)
+        right(90)
+```
+
+---
+
+#### **4. Modify the Previous Design to Use Random Colors**
+- Instead of cycling colors, pick **random colors**.
+
+**Python Code:**
+```python
+from turtle import *
+from random import choice
+
+colors = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+speed(0)
+for i in range(6):
+    pencolor(choice(colors))  # Random color
+    for _ in range(4):
+        forward(100 + i * 20)
+        right(90)
+```
+
+---
+
+### **Key Learning Points**
+✅ **List Indexing (`% len(colors)`)** – Cycles through colors.  
+✅ **Random Selection (`choice()`)** – Picks **random colors or countries**.  
+✅ **Structured Patterns** – Uses **loops for efficiency**.  
+
+This section enhances **dynamic drawing**, making Python **more versatile in design and automation**! 🚀🎨
+
+
 10. Conditional loop
 11. Recursion
 
