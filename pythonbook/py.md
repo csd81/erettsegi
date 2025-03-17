@@ -1192,6 +1192,69 @@ for i in range(20):
 
 This introduces **randomness into graphics**, making Python great for **generative art and simulations**! 🚀
 
+### **Tasks**
+
+#### **1. Random Walk with 90° and 180° Turns**
+Write a program where the turtle:
+- Moves **25 units forward** each step.
+- After each step, it **randomly turns**:
+  - **Left 90°**
+  - **Right 90°**
+  - **180°**
+  - Or continues straight (0° turn).
+
+**Python Code:**
+```python
+from turtle import *
+from random import choice
+
+speed(0)  # Set fast speed
+
+for _ in range(100):  # Repeat 100 steps
+    forward(25)
+    turn = choice([0, 90, -90, 180])  # Random turn
+    left(turn)
+```
+
+---
+
+#### **2. Drawing 50 Small Stars Randomly on Screen**
+- Draw **50 stars**, each composed of **10 lines**.
+- Each line is **5 units long**.
+- Stars should be placed **randomly** within:
+  - **X range:** `-300` to `+300`
+  - **Y range:** `-200` to `+200`
+- Set background color to **black**.
+
+**Python Code:**
+```python
+from turtle import *
+from random import randint
+
+bgcolor("black")  # Set background color
+
+def draw_star():
+    for _ in range(10):  # Each star has 10 lines
+        forward(5)
+        left(144)  # Star shape
+
+speed(0)  # Fast drawing
+
+for _ in range(50):  # Draw 50 stars
+    up()
+    goto(randint(-300, 300), randint(-200, 200))  # Random position
+    down()
+    draw_star()
+```
+
+---
+
+### **Key Learning Points**
+✅ **Random Turns with `choice()`** – Selects from `[0, 90, -90, 180]`.  
+✅ **Random Positions with `randint()`** – Places stars anywhere on screen.  
+✅ **Fast Drawing with `speed(0)`** – Speeds up execution.  
+
+These tasks reinforce **randomized movement** and **pattern generation** using Python Turtle! 🚀✨
 
 9. List
 10. Conditional loop
