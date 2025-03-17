@@ -822,6 +822,84 @@ This section continues with **for loops**, focusing on **loop variables** and mo
 This section reinforces **Python loops**, laying the groundwork for **automated pattern generation**! 🚀
 
 7. Using variables
+
+### **7. USING VARIABLES**
+This section introduces **variables** in Python, demonstrating how to **store, modify, and use values dynamically**.
+
+---
+
+### **7th Example Task – Understanding Variables**
+1. **Opening the Python Command Line**
+   - Open the **Python Shell** and enter commands interactively.
+
+2. **Assigning a Value to a Variable**
+   ```python
+   x = 10
+   ```
+   - Stores the value **10** in the variable `x`.
+
+3. **Checking the Stored Value**
+   ```python
+   x
+   ```
+   - The output should display **10**.
+
+4. **Increasing the Value of `x`**
+   ```python
+   x += 20
+   ```
+   - Adds **20** to `x`, making `x = 30`.
+
+5. **Verifying the Change**
+   ```python
+   x
+   ```
+   - Displays **30**, confirming the update.
+
+6. **Decreasing the Value of `x`**
+   ```python
+   x -= 15
+   ```
+   - Subtracts **15** from `x`, making `x = 15`.
+
+7. **Verifying the Change Again**
+   ```python
+   x
+   ```
+   - Displays **15**.
+
+8. **Multiplying the Value Without Changing `x`**
+   ```python
+   x * 10
+   ```
+   - Displays **160**, but `x` remains **unchanged**.
+
+---
+
+### **Drawing the Spiral Using a Loop**
+The accompanying **spiral** pattern suggests using **loops** to automate movement.
+
+```python
+from turtle import *
+
+reset()
+x = 10  # Initial side length
+
+for _ in range(16):  # Repeat 16 times
+    forward(x)
+    left(90)
+    x += 10  # Increase side length
+```
+
+---
+
+### **Key Learning Points**
+✅ **Storing Values** – Variables **hold values** that can be **changed or used** later.  
+✅ **Updating Variables** – Use `+=` and `-=` for **incrementing and decrementing**.  
+✅ **Looping with Variables** – **Dynamic updates** allow **automated shape drawing**.  
+
+This section teaches **essential programming logic**, making Python **more powerful for automation**! 🚀
+
 8. Random number
 9. List
 10. Conditional loop
