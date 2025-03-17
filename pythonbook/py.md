@@ -125,8 +125,256 @@ This section explains how to **save and run a Python program** that draws a rect
 
 This section transitions learners from **manual commands** to **writing and running full programs** efficiently.
 
+### **Modifying the Program with Colors and Fill**
+
+This section explains how to modify the previously created rectangle program to include **color and fill**, making the inner part red and the border gold.
+
+#### **Steps:**
+10. **Open the Saved Program:**
+    - Open the editor, where the previous rectangle-drawing program is visible.
+
+11. **Enter the New Program:**
+    - Type the following program **line by line**, pressing **Enter** at the end of each line.
+
+12. **Reset the Screen:**
+    - The `reset()` command **clears** the graphics window and **resets the turtle** to its default position.
+
+13. **Set Border Color:**
+    - The `color("gold")` command **changes the border color** to **gold**.
+
+14. **Set Fill Color:**
+    - The `fillcolor("red")` command **sets the inner fill color** to **red**.
+
+15. **Begin and End Fill:**
+    - The **`begin_fill()`** and **`end_fill()`** commands define the **shape to be filled**.
+    - Any shape drawn **between these commands** will be filled with **red**.
+
+16. **Save the File:**
+    - Click **File → Save As…**, name the file **feladat_02.py**, and save it.
+
+17. **Run the Program:**
+    - Press **F5** to execute it.
+    - The **Python Turtle Graphics** window will display a **gold-bordered rectangle filled with red**.
+
+---
+
+### **Tasks for Further Practice**
+1. **Draw the Left-side Figure:**
+   - Create a drawing where each segment is **100 units long**.
+   
+2. **Draw the Middle Figure:**
+   - Draw a **regular triangle**, where all sides are **100 units** long.
+
+3. **Draw a Simple House:**
+   - Use a single **continuous line** (without lifting the pen).
+   - The **roof** should be **symmetrical**, with **equal-length slanted lines**.
+   - Each segment should be **100 units long**.
+   - Ensure the **right angle of the house base** is accurate.
+
+This section expands on **basic turtle graphics**, introducing **color fills**, **structured programming**, and **more complex shapes**.
+
+Here is the Python code for the modified rectangle with a **gold border** and **red fill** using Turtle Graphics:
+
+```python
+from turtle import *
+
+reset()            # Clears the screen and resets the turtle
+color("gold")      # Sets the border color to gold
+fillcolor("red")   # Sets the fill color to red
+
+begin_fill()       # Start filling the shape
+forward(400)       # Draw bottom side
+left(90)
+forward(100)       # Draw left side
+left(90)
+forward(400)       # Draw top side
+left(90)
+forward(100)       # Draw right side
+left(90)
+end_fill()         # Stop filling the shape
+```
+
+### **Explanation:**
+- `reset()` clears the screen and resets the turtle to its default position.
+- `color("gold")` sets the **border** color to gold.
+- `fillcolor("red")` sets the **fill** color to red.
+- `begin_fill()` and `end_fill()` wrap around the **rectangle-drawing commands** to fill the shape.
+
+#### **Execution**
+- Save this script as **feladat_02.py**.
+- Run it using **F5** in Python's IDLE.
+
+This program will **draw a filled rectangle** with **gold borders** and a **red interior** in the Python Turtle Graphics window. 🚀
 
 3. Procedure
+
+### **3. PROCEDURE (Function)**
+This section explains how to **reuse code** by defining a **procedure (function)** in Python. Instead of repeating the same instructions to draw multiple rectangles, we can define a **procedure** and call it multiple times.
+
+---
+
+### **Concept: Using a Function to Reuse Code**
+- When we need to **draw multiple identical rectangles**, writing the same commands repeatedly is inefficient.
+- A **procedure (function)** allows us to group commands together under a **name**.
+- When we call the function by its name, **all the instructions inside it execute in order**.
+
+---
+
+### **3rd Example Task – Reusing Code with a Procedure**
+We will **modify the previous program (feladat_02.py)** to draw **three rectangles** in red, white, and green, forming a **Hungarian flag**.
+
+#### **Steps:**
+1. **Open the Previous Program:**
+   - Click **File → Open…** and select **feladat_02.py**.
+
+2. **Modify the Code:**
+   - Add a **procedure (function)** to define the **rectangle-drawing code**.
+
+3. **Define the Procedure:**
+   - A function is introduced using `def` followed by the function name **teglalap()** (meaning "rectangle").
+   - The commands inside the function **must be indented**.
+
+4. **Understanding Indentation:**
+   - When pressing *Enter* after the function definition, the next lines **must be indented**.
+   - Press the **Tab key** to maintain correct indentation.
+
+5. **Calling the Procedure:**
+   - After defining `teglalap()`, we can **call** it multiple times in different positions.
+
+---
+
+### **Final Python Code:**
+```python
+from turtle import *
+
+def teglalap():   # Function to draw a rectangle
+    begin_fill()
+    forward(400)
+    left(90)
+    forward(100)
+    left(90)
+    forward(400)
+    left(90)
+    forward(100)
+    left(90)
+    end_fill()
+
+reset()
+color("gold")  
+fillcolor("red")
+teglalap()        # Draw first rectangle (red)
+
+up()
+forward(100)      # Move up
+left(90)
+down()
+
+fillcolor("white")
+teglalap()        # Draw second rectangle (white)
+
+up()
+forward(100)      # Move up again
+left(90)
+down()
+
+fillcolor("green")
+teglalap()        # Draw third rectangle (green)
+```
+
+---
+
+### **Explanation:**
+- **Defining a Function (`def teglalap()`)**
+  - The function groups the rectangle-drawing commands together.
+  - It uses `begin_fill()` and `end_fill()` to **fill the rectangle**.
+
+- **Calling the Function Multiple Times**
+  - After defining the function, we call `teglalap()` **three times**, each with a different fill color.
+
+- **Moving the Turtle (`up()` and `down()`)**
+  - The `up()` command lifts the turtle's pen, allowing it to move without drawing.
+  - The `down()` command puts the pen back down to start drawing again.
+
+---
+
+### **Output:**
+- The script draws **three rectangles**:
+  - **Red at the bottom**
+  - **White in the middle**
+  - **Green at the top**
+- The final drawing represents the **Hungarian flag** using Python Turtle Graphics.
+
+---
+
+### **Benefits of Using a Function:**
+✅ **Reusability** – We only write the rectangle-drawing code **once**.  
+✅ **Readability** – The program is **cleaner and easier to understand**.  
+✅ **Efficiency** – We can change the **rectangle size or shape** by editing just one function.
+
+This section introduces **basic functions in Python**, making code **more structured and reusable**. 🚀
+
+### **Extending the Flag Drawing Program**
+
+This section builds upon the previous **Hungarian flag** drawing program by refining **positioning** and **flag variations**.
+
+---
+
+### **Steps to Draw the Hungarian Flag Properly:**
+6. **Calling the Function Three Times:**  
+   - The function `teglalap()` is called **three times** (lines 17, 23, 29).
+   - Each call executes the **same drawing commands**, filling each rectangle with **different colors**.
+
+7. **Setting the Fill Colors:**  
+   - Each function call **sets the fill color** before drawing:
+     - **Red (line 16)**
+     - **White (line 22)**
+     - **Green (line 28)**
+
+8. **Positioning the Turtle:**  
+   - After drawing the **first rectangle**, the turtle is at the **bottom left corner**.
+   - The next rectangle must **start from the same position** but **100 pixels lower**.
+   - The turtle moves **down** by **100 pixels** (lines 19, 25).
+
+9. **Lifting the Brush (Pen) While Moving:**  
+   - To avoid drawing unintended lines while moving, the `up()` command is used (lines 18, 24).
+
+10. **Placing the Brush Down Before Drawing:**  
+   - The `down()` command ensures that the turtle **starts drawing** again before each rectangle (lines 21, 27).
+
+11. **Adjusting the Turtle’s Orientation:**  
+   - Since the drawing originally went **downwards**, the turtle **starts facing right**.
+   - Before drawing each new rectangle, the turtle **rotates left by 90 degrees** (lines 20, 26).
+
+12. **Saving the Program:**  
+   - Click **File → Save As…**, and name the file **feladat_03.py**.
+
+13. **Running the Program:**  
+   - Press **F5** to execute it.
+   - The **Hungarian flag** (red, white, green) appears in the **Python Turtle Graphics** window.
+
+---
+
+### **Additional Exercises**
+1. **Modify `feladat_03.py` to Draw the German Flag:**
+   - Change colors to **black, red, and yellow** (fekete-piros-sárga).
+
+2. **Modify `feladat_03.py` for Two-Stripe Horizontal Flags:**
+   - Adjust the function to draw **two equal horizontal stripes**.
+   - Example: **Polish flag** (white-red).
+
+3. **Modify `feladat_03.py` for Three-Stripe Vertical Flags:**
+   - Modify the function to draw **three equal vertical stripes**.
+   - Example: **Irish flag** (green-white-orange).
+
+---
+
+### **Key Learning Points:**
+✅ **Code Reusability:** The `teglalap()` function simplifies repetitive drawing.  
+✅ **Positioning Logic:** The turtle **lifts the pen, moves, and rotates** correctly.  
+✅ **Adaptability:** The function is flexible, allowing easy modifications for **different flags**.  
+
+This section strengthens **Python programming** skills by integrating **functions, movement logic, and color customization**. 🚀
+
 4. Variables
 5. Branching
 6. Counting cycle
