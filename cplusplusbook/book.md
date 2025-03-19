@@ -1982,8 +1982,249 @@ The above branching coding looks like the right side in all C-like languages. Th
 
 29. The use of the term might sound odd since how can one branch in only one direction? However, in professional literature, this structure is often called this way, since there is no false branch.
 
-64
+ 
 65
-66
-67
-68
+ 
+ 
+
+---
+
+### Branching in Two Directions  
+
+We talk about two-way branching if, depending on one condition, the program needs to continue in two different ways. So we want to use the false branch.  
+
+The syntax:  
+
+```
+If <condition> then <instructions1>
+  else <instructions2>
+End of branching
+```  
+
+**Interpretation**: if the condition is met, instructions1 will be executed; otherwise, instructions2 will be executed. After executing the instructions, the program continues after the End of branching.  
+
+**Example**: negative numbers do not have a square root among real numbers. Let's write a program that asks the user for a number before computing the square root, and in the case of a negative number, it displays that the root cannot be taken. In the case of zero or a positive number, it proceeds to compute the square root. The algorithm of the solution is shown here:  
+
+```
+Input: a
+If a < 0 then Output: "The operation cannot be performed."
+  else Output: square_root(a)
+End of branching
+```  
+
+In C-like languages, compared to what we learned earlier, the coding expands with an `else` statement, after which we give the instructions for the false branch (for now, one statement each).  
+
+In the image below and in the previous algorithm, you can see that I started on certain lines further inward. The program works without this as well; its purpose is solely to improve readability. Such formatting may be expected at workplaces and in schools, but it cannot be required during an advanced-level graduation exam.  
+
+**C# version**:  
+```csharp
+int a;
+a = Convert.ToInt16(Console.ReadLine());
+if (a < 0)
+  Console.WriteLine("The operation cannot be performed.");
+else
+  Console.WriteLine(Math.Sqrt(a));
+```  
+
+**C++ version**:  
+```cpp
+int a;
+cin >> a;
+if (a < 0)
+  cout << "The operation cannot be performed.";
+else
+  cout << sqrt(a);
+```
+
+Here is the verbatim English translation of the provided Hungarian text:
+
+---
+
+### Comparison  
+
+From the following table, it can be read what relational signs we can use when giving conditions.  
+
+In C languages, = means let it be equal. Equality, as a comparison, received the symbol == so that it cannot be confused with let it be equal and the equal to expressions.  
+
+It is also common to code not equal. In algorithmic languages (and in many other programming languages, as well as in Excel), the logical less or greater is coded with the symbol <>. In C languages, the ! symbol is the sign of negation (not), so the not equal sign is !=.  
+
+| Name of operation        | C languages | Algorithm   |
+|--------------------------|-------------|-------------|
+| greater than             | a > b       | a > b       |
+| less than                | a < b       | a < b       |
+| greater than or equal to | a >= b      | a ≥ b       |
+| less than or equal to    | a <= b      | a ≤ b       |
+| equal to                 | a == b      | a = b       |
+| not equal to             | a != b      | a ≠ b       |
+
+---
+
+### Tasks  
+
+1. Request a real number from the user and determine its absolute value. If you cannot do it otherwise, ask for help from the worked-out solution.  
+
+2. Write a program that, before taking the square root, asks the user for a number, and if the number is negative, displays that the root cannot be taken. In the case of zero or a positive number, perform the square root operation. If you cannot do it otherwise, ask for help from the worked-out solution.  
+
+3. Ask the user for the number of ships visible from the lighthouse. If this value is greater than three, display "Heavy tower" on the screen; otherwise, do not display anything.  
+
+4. Ask the user for two numbers, which will be the numerator and denominator of a common fraction. Decide whether the entered fraction can be expressed as an integer; if so, display its integer value, if not, display "Cannot be expressed."  
+
+5. Write a program that asks for a 3-digit positive integer from the keyboard and determines whether it is an Armstrong number. A 3-digit Armstrong number is a number where the sum of the cubes of its digits equals the number itself, for example, 371 = 3³ + 7³ + 1³. Display the result on the screen!  
+
+---
+Here is the full verbatim English translation of the provided page:  
+
+---
+
+## III. CONTROL STRUCTURES  
+
+**CONDITIONAL BRANCHING – MORE COMPLEX CASES**  
+
+### Using a block of instructions  
+
+When thinking in C languages, sometimes we would like to place multiple instructions in the false branch of a conditional statement. How will the compiler know where the end of the false branch is, and after that, where the end of the branching is? In C languages, there is no "end of branching" instruction like in sentence-like descriptions.  
+
+In C languages, we use **instruction blocks** when we want to provide multiple instructions in one branch of a control structure, in our case, in the false branch. The instruction block groups the instructions together. Its symbol is the pair of curly brackets `{}`, between which we write the instructions.  
+
+In the example code, in the branching (lines 15–20), we use an instruction block in the false branch. In line (20), the closing curly bracket marks the end of the false branch starting from line (17), containing all instructions executed in that branch (line 21). In the true branch (line 15), we do not need an instruction block, since we only execute a single instruction.  
+
+```c
+14 int a, b, c, k;  
+15 if (k == 3) a = 1;  
+16 else {  
+17     a = 0;  
+18     b = 0;  
+19     c = 0;  
+20 }  
+21 k = a + b + c;  
+```  
+
+### Branching in multiple directions  
+
+It may happen that more than two cases need to be separated. In this case, the branches will be nested into each other. This simply means that with the first branching we select between two possibilities, and then in one or both branches, we place further branchings.  
+
+For example: let’s decide about a number, whether it is positive, negative, or zero. This is a three-case situation, which we cannot solve with a single conditional branching. First, we separate between zero and not-zero. If it is equal to zero (line 16), we can write that it is zero, and there is nothing more to do. If it is not equal to zero (line 17), another branching will follow inside the previous one, according to lines (18)–(19), whether it is greater than zero or not. On line (18), we can write that it is positive. On line (19), we can write that it is negative.  
+
+In C language coding, instruction blocks must also be used in lines (17) and (20), because in line (18) and in the `else` (19) branch we count on two instructions, even though it is one single control structure.  
+
+---
+
+Here is the full verbatim English translation of the provided page:  
+
+---
+
+**MAGYARY GYULA**  
+
+**Nesting branches within branches – algorithm**  
+
+**Algorithm for nesting branches within branches**  
+
+16) If a = 0 then print: '0'  
+17) else  
+18) If a > 0 then print: '+'  
+19) else print: '-'  
+20) end of branch  
+21) end of branch  
+
+```c
+16 if (a==0) ki='0';  
+17 else {  
+18     if (a>0) ki='+';  
+19     else ki='-';  
+20 }  
+```  
+
+By nesting multiple branches within each other, we can create branching in three or more directions as well. If the Reader truly understands this topic, they will be able to answer the following questions: How many branches are needed to be nested in order to create a five-way branching? And what about in the case of n branches? The answer can be found in the footnote. 30  
+
+---
+
+### Compound conditions  
+
+Compound conditions consist of partial conditions. For example, “smaller than 7 and greater than 0” is a compound condition made up of two partial conditions: “smaller than 7” and “greater than 0.”  
+
+Both compound conditions and partial conditions can only have values that are either true or false, so we are dealing with logical expressions.  
+
+Creating compound conditions from partial conditions is important, because the `if` statement can only accept a single logical (true/false) value. If we have multiple conditions, it is not sufficient to simply write them after one another, as that would result in multiple logical values.  
+
+With the help of logical operations, we can combine multiple logical values into one, thus connecting partial conditions into a compound condition.  
+
+---
+
+### Logical AND  
+
+| A     | B     | A ∧ B  |  
+|-------|-------|--------|  
+| true  | true  | true   |  
+| true  | false | false  |  
+| false | true  | false  |  
+| false | false | false  |  
+
+In the case of a logical AND operation, the result is only true if **all partial conditions** are true. In every other case, it is false.  
+
+---
+
+_Footnote: 30 — 4 branches for 4 directions, n-1 branches for n directions._  
+
+---
+
+
+
+68  Here is the full verbatim English translation of the provided page:  
+
+---
+
+**MAGYARY GYULA**  
+
+**Nesting branches within branches – algorithm**  
+
+**Algorithm for nesting branches within branches**  
+
+16) If a = 0 then print: '0'  
+17) else  
+18) If a > 0 then print: '+'  
+19) else print: '-'  
+20) end of branch  
+21) end of branch  
+
+```c
+16 if (a==0) ki='0';  
+17 else {  
+18     if (a>0) ki='+';  
+19     else ki='-';  
+20 }  
+```  
+
+By nesting multiple branches within each other, we can create branching in three or more directions as well. If the Reader truly understands this topic, they will be able to answer the following questions: How many branches are needed to be nested in order to create a five-way branching? And what about in the case of n branches? The answer can be found in the footnote. 30  
+
+---
+
+### Compound conditions  
+
+Compound conditions consist of partial conditions. For example, “smaller than 7 and greater than 0” is a compound condition made up of two partial conditions: “smaller than 7” and “greater than 0.”  
+
+Both compound conditions and partial conditions can only have values that are either true or false, so we are dealing with logical expressions.  
+
+Creating compound conditions from partial conditions is important, because the `if` statement can only accept a single logical (true/false) value. If we have multiple conditions, it is not sufficient to simply write them after one another, as that would result in multiple logical values.  
+
+With the help of logical operations, we can combine multiple logical values into one, thus connecting partial conditions into a compound condition.  
+
+---
+
+### Logical AND  
+
+| A     | B     | A ∧ B  |  
+|-------|-------|--------|  
+| true  | true  | true   |  
+| true  | false | false  |  
+| false | true  | false  |  
+| false | false | false  |  
+
+In the case of a logical AND operation, the result is only true if **all partial conditions** are true. In every other case, it is false.  
+
+---
+
+_Footnote: 30 — 4 branches for 4 directions, n-1 branches for n directions._  
+
+---
+
+Let me know if you’d like me to translate more pages!
