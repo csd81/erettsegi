@@ -1,0 +1,2 @@
+**TL;DR:**  
+Fundamental types (also called primitive or built-in types) are basic data types like integers, floating-point numbers, characters, Booleans, bytes, size_t, and void. They are built into the language, universally available, and designed for portability, though their exact size and memory layout depend on the specific platform implementation. These types balance direct hardware mapping with cross-platform compatibility.
