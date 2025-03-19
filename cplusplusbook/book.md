@@ -2227,4 +2227,121 @@ _Footnote: 30 — 4 branches for 4 directions, n-1 branches for n directions._
 
 ---
 
-Let me know if you’d like me to translate more pages!
+Here is the full verbatim English translation of the provided page:  
+
+---
+
+### III. CONTROL STRUCTURES | 69  
+
+For two partial conditions (A and B), the attached table is valid. However, it is important to know that this operation can be applied to more than two partial conditions based on the previous explanation and definition.  
+
+For example: let’s check the correctness of a number provided by the user. It should be considered correct if its value falls between 1 and 8, including the boundaries. We can only print the message "Good" if both partial conditions a ≥ 1 and a ≤ 8 are true. In this case, we need to use the AND operation (line 16).  
+
+The standard symbol for the AND operation in algorithmic language is: ^. However, often the words AND or the English AND are used instead, since typing the ^ character can be problematic. In C languages, we use the && symbol for this purpose. ³¹ (16).  
+
+---
+
+### Logical OR  
+
+| A     | B     | A ∨ B  |  
+|-------|-------|--------|  
+| true  | true  | true   |  
+| true  | false | true   |  
+| false | true  | true   |  
+| false | false | false  |  
+
+In the case of a logical OR operation, the result is true if **any of the partial conditions** is true. This includes situations where one or more partial conditions are satisfied. In other words, the operation is false **only if all partial conditions are false**. In every other case, the result is true.  
+
+For two partial conditions (A and B), the attached table is valid. However, it is important to know that this operation can also be applied to more than two partial conditions based on the previous explanation and definition.  
+
+For example: let’s check the correctness of a number provided by the user. In this case, we print the message "Bad" if the number is less than or equal to 1, or greater than or equal to 8. The "Bad" message must be printed if either of the two partial conditions is satisfied. So in this case, we need to use the OR operation (line 18).  
+
+The standard symbol for the OR operation in algorithmic language is the ∨ character. However, often the OR or the English OR words are used instead. In C languages, the `||` symbol is used. ³² (18).  
+
+---
+
+_Footnotes:_  
+³¹ The single ampersand & symbol in C languages is used for the bitwise AND operation.  
+³² The single pipe | symbol in C languages is used for the bitwise OR operation.  
+
+---
+
+Here is the full English translation of the page you provided:  
+
+---
+
+**MAGYARY GYULA**  
+
+## Logical NOT  
+
+| A   | ¬A   |
+|-----|------|
+| true  | false |
+| false | true  |
+
+The logical NOT operation simply turns truth into falsehood and falsehood into truth. In algorithm description language, it is represented by the ¬ symbol. If writing this symbol is problematic, the words NOT or NEM are used instead. The opposite (negation) of `a > 1` is `a <= 1`; for example, if a number greater than 1 is given, the word "good" will be displayed.  
+
+### Compound conditions – algorithm  
+
+16) If a >= 1 AND a <= 8 then  
+17) Print: "good"  
+18) If a <= -1 OR a >= 8 then  
+19) Print: "bad"  
+20) If NOT (a <= 1) then Print: "good"  
+
+### Compound conditions – in C language  
+
+| Line | Example in C                              |
+|------|------------------------------------------|
+| 16   | `if (a >= 1 && a <= 8)` <br> `printf("good");`   |
+| 18   | `if (a <= -1 || a >= 8)` <br> `printf("bad");`   |
+| 20   | `if (!(a <= 1))` <br> `printf("good");`   |
+
+It is possible to connect multiple conditions using logical operations. Sometimes a complex chain of logical operations is formed, so it’s important to know the **order of operations**:  
+Parenthetical expression > NOT > AND > OR  
+
+In practice, however, I have experienced that it’s often advisable to enclose every sub-condition in parentheses, because sometimes the compiler does not interpret the operations the same way as the developer intends.  
+
+Similarly, it can be worthwhile to subject chains of logical operations to simplification procedures, or break them down into multiple branches. The AND operation can be replaced by nested branches, and the OR operation can be replaced by sequentially applied branching.  
+
+---
+
+**Footnote:**  
+33 The possibilities of simplification are omitted here due to space constraints. In the appropriate literature, you can find a systematic approach to simplification procedures for logical functions.  
+
+---
+
+Here’s the full English translation of the page you provided:
+
+---
+
+### III. CONTROL STRUCTURES  
+
+### Exercises  
+
+1. Ask the user for a real number and display whether it is positive, negative, or zero. If not used elsewhere, apply the result to a previously developed task.  
+
+2. Ask the user for two integers and display them in ascending order. In the case of equality, display the number only once.  
+
+3. A courier receives payment based on the distance traveled according to the table below. Ask the user for a distance between 1 and 30 km, and determine how much payment they receive for it.  
+
+| Distance   | Payment   |
+|------------|-----------|
+| 1 – 2 km   | 500 Ft    |
+| 3 – 5 km   | 700 Ft    |
+| 6 – 10 km  | 900 Ft    |
+| 11 – 20 km | 1400 Ft   |
+| 21 – 30 km | 2000 Ft   |
+
+4. Write a program that asks for three pieces of information about a plot of land: tax amount, length, and width. If the width is 15 m or less, or the length is 25 m or less, the property owner receives a 20% tax discount. Calculate and display the corrected tax amount including this discount.  
+
+5. Write a program that reads the lengths of three line segments (a, b, and c) from the keyboard and determines (and displays on screen) whether a triangle can be constructed from those segments. Three segments can form a triangle if and only if the sum of the lengths of any two sides is greater than the length of the third side.  
+
+---
+
+**Footnote:**  
+34 The triangle inequality theorem.  
+
+---
+
+
