@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("erettsegi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9f696dc6b48abd4f245ac66245be40492663cc6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71655890adc5ffe933a4b05466bf3149a6b286c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("erettsegi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("erettsegi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
