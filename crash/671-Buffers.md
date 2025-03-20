@@ -57,3 +57,72 @@ Dynamic buffers are convenient but may be less efficient if you're doing lots of
 ---
 
 👉 If you’d like, I can make a small hands-on example that combines networking with these buffers to really show them in action. Want me to? 😎
+
+Awesome! Here’s a simple but clear example that shows:  
+- creating a TCP connection (client-side)  
+- sending data using `boost::asio::buffer`  
+- receiving data into a `streambuf`  
+
+### ✅ Example: TCP Client using `boost::asio` Buffers
+
+This example will connect to `example.com` on port 80, send a simple HTTP request, and read the response into a streambuf.
+
+```cpp
+#include <iostream>
+#include <boost/asio.hpp>
+
+int main() {
+    try {
+        // 1. Setup context, resolver, and socket
+        boost::asio::io_context io_context;
+        boost::asio::ip::tcp::resolver resolver(io_context);
+        boost::asio::ip::tcp::socket socket(io_context);
+
+        // 2. Resolve the hostname
+        auto endpoints = resolver.resolve("example.com", "80");
+
+        // 3. Connect to the resolved endpoint
+        boost::asio::connect(socket, endpoints);
+
+        // 4. Create the HTTP request string
+        std::string request = 
+            "GET / HTTP/1.1\r\n"
+            "Host: example.com\r\n"
+            "Connection: close\r\n\r\n";
+
+        // 5. Send the request using a const_buffer
+        boost::asio::const_buffer req_buf = boost::asio::buffer(request);
+        boost::asio::write(socket, boost::asio::buffer(req_buf));
+
+        // 6. Create a streambuf to hold the response
+        boost::asio::streambuf response_buf;
+
+        // 7. Read until connection closes (EOF)
+        boost::system::error_code error;
+        while (boost::asio::read(socket, response_buf, boost::asio::transfer_at_least(1), error)) {
+            std::cout << &response_buf; // Print the response as it arrives
+        }
+
+        // 8. Handle end of stream or errors
+        if (error != boost::asio::error::eof) {
+            throw boost::system::system_error(error);
+        }
+    } catch (std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+### ✅ What’s happening here:
+- `const_buffer` wraps the HTTP request without copying the string unnecessarily.
+- `streambuf` receives incoming data from the socket; you can use it with an `istream` or stream it out directly (`std::cout << &response_buf;`).
+- The program reads until the server closes the connection (EOF), common with HTTP/1.1 `Connection: close`.
+
+---
+
+### ⚡ Want me to show a server example too — maybe using `mutable_buffer` for receiving incoming data from a client?  
+I can make a simple echo server if you’d like!
